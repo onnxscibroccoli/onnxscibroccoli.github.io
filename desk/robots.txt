@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://newsroom-desk.vercel.app/sitemap.xml
