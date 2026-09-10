@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://newsroom-desk.vercel.app/</loc>
+    <loc>https://newsroom-desk-five.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://newsroom-desk.vercel.app/record</loc>
+    <loc>https://newsroom-desk-five.vercel.app/record</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://newsroom-desk.vercel.app/privacy</loc>
+    <loc>https://newsroom-desk-five.vercel.app/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://newsroom-desk.vercel.app/story/the-cost-of-proving-youre-right</loc>
+    <loc>https://newsroom-desk-five.vercel.app/story/the-cost-of-proving-youre-right</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://newsroom-desk.vercel.app/story/android-can-see-the-button</loc>
+    <loc>https://newsroom-desk-five.vercel.app/story/android-can-see-the-button</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://newsroom-desk.vercel.app/story/the-invisible-phone</loc>
+    <loc>https://newsroom-desk-five.vercel.app/story/the-invisible-phone</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
