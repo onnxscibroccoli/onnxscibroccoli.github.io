@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Systems Digest — Global Autonomous Systems</title>
+  <meta name="description" content="Cross-jurisdictional working brief on autonomous systems, cyber-relevant open source, and an English documentation-fork pipeline." />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" />
+  <link rel="stylesheet" href="digest.css" />
+</head>
+<body>
+  <header class="bar">
+    <div class="wrap bar-row">
+      <a class="brand" href="#overview">Systems Digest</a>
+      <nav class="desk" aria-label="On this page">
+        <a href="#overview">Overview</a>
+        <a href="#jurisdictions">Jurisdictions</a>
+        <a href="#matrix">Matrix</a>
+        <a href="#stack">Stack</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#notes">Notes</a>
+      </nav>
+    </div>
+    <nav class="mobile" aria-label="On this page">
+      <a href="#overview">Overview</a>
+      <a href="#jurisdictions">Jurisdictions</a>
+      <a href="#matrix">Matrix</a>
+      <a href="#stack">Stack</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#notes">Notes</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section id="overview">
+      <p class="eyebrow">Working brief · 14 October 2026</p>
+      <h1>Global autonomous systems, cyber intelligence, and robotics.</h1>
+      <p class="dek">A cross-jurisdictional repository digest, with the labels checked, and a design for an English documentation fork that does not rewrite code.</p>
+      <dl class="stats">
+        <div><dt>Verified rows</dt><dd>9</dd></div>
+        <div><dt>Cited rows</dt><dd>8</dd></div>
+        <div><dt>Vectors</dt><dd>2</dd></div>
+        <div><dt>Hosts to watch</dt><dd>3</dd></div>
+      </dl>
+      <p>Open-source work on autonomous vehicles, robotics, and the security tools around them is scattered. The useful repositories are not all in one company or one country. Some of them are hard to read if you do not read the language of the README and the comments.</p>
+<p>This digest is a target list and a design for a pipeline: watch a short list of hosts, translate documentation without touching executable syntax, and keep an English fork that a person reviews. It is a working brief dated 14 October 2026. It is not a statement that a state runs any of these projects, and it is not a statement that every maintainer lives in the country on the tag.</p>
+<p>Tags are intake labels. Verified means a public repository or model card was checked for this edition. Cited means the source brief named it and this pass did not re-confirm the tree. A vector is a capability with no repository attached.</p>
+    </section>
+    <section id="jurisdictions">
+      <p class="eyebrow sage">Where the work actually sits</p>
+      <h2>Jurisdictions</h2>
+      <div class="grid">
+        <article class="card">
+              <p class="kicker">China</p>
+              <h3>Embodied agents and camera-first perception</h3>
+              <p class="quiet">The verified anchor is HorizonRobotics/HoloAgent: one agent loop that plans, calls robot skills, and keeps a 3D spatial memory instead of treating navigation and manipulation as separate demos.</p><p class="quiet">The brief also points at Fast-BEV for multi-camera 3D detection and at GAAS for VTOL and UAV software. Both stay cited until someone opens the tree, the license, and the last commit.</p><p class="quiet">What is worth copying is the pattern, not a slogan about a country: camera-first geometry, then a closed loop that can recover when a skill only half-finishes.</p>
+            </article>
+<article class="card">
+              <p class="kicker">Japan</p>
+              <h3>Certifiable stacks and zero-copy middleware</h3>
+              <p class="quiet">Autoware is the modular ROS 2 baseline: perception, behavior, and control with a real release process. Agnocast sits under it and moves large sensor payloads between processes without serializing them. Nebula is the sensor-driver boundary. AutoE2E is the map-optional neural trajectory model.</p><p class="quiet">PythonRobotics is the algorithm reference used to check whether a new planner is actually a new idea.</p><p class="quiet">Hayabusa moves into this column. It is Yamato Security's Windows forensic timeline tool. The source brief had it under Russia. That filing was wrong.</p><p class="quiet">vision_pilot, with its AutoSpeed / AutoSteer / AutoDrive split, is still only a name in the brief. It is not a dependency.</p>
+            </article>
+<article class="card">
+              <p class="kicker">Russia</p>
+              <h3>What survives after the cluster is checked</h3>
+              <p class="quiet">The source brief grouped kernel inspection, binary work, OSINT scrapers, and threat hunting as a Russian specialty, then listed Hayabusa, sqlmap, redbpf, sniffglue, and rshijack beside two Russia-focused citations.</p><p class="quiet">Hayabusa is Japanese and defensive. sqlmap is a global assessment tool. redbpf, sniffglue, and rshijack were not established as Russian, and connection-hijacking research is not part of this roadmap.</p><p class="quiet">What remains, still cited rather than verified: a collection of OSINT utilities aimed at Russian public records, a UK-maintained matrix of Russian APT techniques, and an unconfirmed Windows anti-rootkit name, KSword. None of those is a robotics runtime.</p>
+            </article>
+<article class="card">
+              <p class="kicker">Israel</p>
+              <h3>The situational-awareness claim, narrowed</h3>
+              <p class="quiet">The brief assigned browser-native spatial intelligence and multi-feed command boards to Israeli engineering, and named gods-eye-view and IRONSIGHT.</p><p class="quiet">gods-eye-view is real and is filed under Global. IRONSIGHT's path was corrupted in the source text and was not confirmed.</p><p class="quiet">The capability still matters: a fleet needs a picture of where vehicles are and what the open sensors say. That picture is a software layer. This edition does not treat it as a verified national specialty.</p>
+            </article>
+<article class="card">
+              <p class="kicker">South Korea</p>
+              <h3>Hardware-in-the-loop, no named repository</h3>
+              <p class="quiet">The brief describes hardware-in-the-loop work on scaled platforms (F1Tenth-class vehicles and drive-by-wire development chassis), edge acceleration, and strict quality metrics.</p><p class="quiet">No repository was named. This is a vector: look for HIL launchers, vehicle benches, and model-deployment tooling. Do not backfill a famous lab's name to make the cell look complete.</p>
+            </article>
+<article class="card">
+              <p class="kicker">Albania</p>
+              <h3>Constrained links, no named repository</h3>
+              <p class="quiet">The brief describes telecommunication drivers, edge packet handling, and routing meant to keep telemetry alive on poor wireless links.</p><p class="quiet">No repository was named. Treat it as a requirement — small messages, lossy links, command paths that degrade instead of stalling — and fill the cell when a specific project is found.</p>
+            </article>
+<article class="card">
+              <p class="kicker">Global</p>
+              <h3>Projects the brief mis-filed</h3>
+              <p class="quiet">gods-eye-view is the verified globe. sqlmap is listed only to record that it is not Russian and is not a vehicle component.</p><p class="quiet">softmata/horus stays cited. If a Rust runtime is going to sit beside ROS 2, it has to be a repository someone can clone.</p>
+            </article>
+      </div>
+    </section>
+    <section id="matrix">
+      <p class="eyebrow sage">Filter the target list</p>
+      <h2>Repository matrix</h2>
+      <label class="search">
+        <span class="sr">Search repositories</span>
+        <input id="q" type="search" placeholder="Search name, domain, or note" />
+      </label>
+      <div class="chips" id="places" role="group" aria-label="Jurisdiction"></div>
+      <div class="chips" id="states" role="group" aria-label="Status"></div>
+      <p id="count" class="quiet"></p>
+      <div class="grid" id="repos">
+        <article class="card repo" data-j="Japan" data-s="verified" data-t="autowarefoundation/autoware autonomous mobility ros 2 driverless-vehicle stack: sensing, localization, planning, and control modules used as a production baseline. autoware foundation project. japan is the engineering center (tier iv and the foundation), not a claim about every contributor. c++, python">
+      <p class="kicker">Japan · Verified</p>
+      <h3>autowarefoundation/autoware</h3>
+      <p class="domain">Autonomous mobility</p>
+      <p>ROS 2 driverless-vehicle stack: sensing, localization, planning, and control modules used as a production baseline.</p>
+      <p class="quiet">Autoware Foundation project. Japan is the engineering center (TIER IV and the foundation), not a claim about every contributor.</p>
+      <p class="langs">C++, Python</p>
+      <a class="out" href="https://github.com/autowarefoundation/autoware">Open repository</a>
+    </article>
+<article class="card repo" data-j="Japan" data-s="verified" data-t="autowarefoundation/agnocast system middleware rclcpp-compatible true zero-copy ipc for ros 2 messages, including unsized types. ships a kernel module (agnocast-kmod) and a heaphook. described in ishikawa-aso and kato, ieee isorc 2025. an earlier line lived at tier4/agnocast. the foundation repository is the one to track. this digest does not re-benchmark the constant-overhead claim. c++">
+      <p class="kicker">Japan · Verified</p>
+      <h3>autowarefoundation/agnocast</h3>
+      <p class="domain">System middleware</p>
+      <p>rclcpp-compatible true zero-copy IPC for ROS 2 messages, including unsized types. Ships a kernel module (agnocast-kmod) and a heaphook. Described in Ishikawa-Aso and Kato, IEEE ISORC 2025.</p>
+      <p class="quiet">An earlier line lived at tier4/agnocast. The foundation repository is the one to track. This digest does not re-benchmark the constant-overhead claim.</p>
+      <p class="langs">C++</p>
+      <a class="out" href="https://github.com/autowarefoundation/agnocast">Open repository</a>
+    </article>
+<article class="card repo" data-j="Japan" data-s="verified" data-t="autowarefoundation/auto_e2e physical ai camera-only end-to-end trajectory model that can run without an hd map. the public v1 checkpoint uses resnet-50 and bevformer v2, with six surround cameras and an optional map raster. the source brief described a swinv2 backbone, seven cameras, 10 hz waypoints, and 76 fps. those figures were not on the model card checked for this edition and are not repeated as current fact. python">
+      <p class="kicker">Japan · Verified</p>
+      <h3>autowarefoundation/auto_e2e</h3>
+      <p class="domain">Physical AI</p>
+      <p>Camera-only end-to-end trajectory model that can run without an HD map. The public v1 checkpoint uses ResNet-50 and BEVFormer V2, with six surround cameras and an optional map raster.</p>
+      <p class="quiet">The source brief described a SwinV2 backbone, seven cameras, 10 Hz waypoints, and 76 fps. Those figures were not on the model card checked for this edition and are not repeated as current fact.</p>
+      <p class="langs">Python</p>
+      <a class="out" href="https://github.com/autowarefoundation/auto_e2e">Open repository</a>
+    </article>
+<article class="card repo" data-j="Japan" data-s="verified" data-t="autowarefoundation/nebula sensor drivers autoware sensor-driver layer. abstracts lidar and related devices so perception nodes are not tied to one vendor sdk. use this, not a guessed driver fork, when the stack needs a maintained sensor boundary. c++">
+      <p class="kicker">Japan · Verified</p>
+      <h3>autowarefoundation/nebula</h3>
+      <p class="domain">Sensor drivers</p>
+      <p>Autoware sensor-driver layer. Abstracts LiDAR and related devices so perception nodes are not tied to one vendor SDK.</p>
+      <p class="quiet">Use this, not a guessed driver fork, when the stack needs a maintained sensor boundary.</p>
+      <p class="langs">C++</p>
+      <a class="out" href="https://github.com/autowarefoundation/nebula">Open repository</a>
+    </article>
+<article class="card repo" data-j="Japan" data-s="verified" data-t="atsushisakai/pythonrobotics reference algorithms readable reference implementations of ekf localization, slam, global planning, and obstacle avoidance. a textbook, not a vehicle stack. useful for comparing a foreign planner against a known algorithm, not for deploying on a vehicle. python">
+      <p class="kicker">Japan · Verified</p>
+      <h3>AtsushiSakai/PythonRobotics</h3>
+      <p class="domain">Reference algorithms</p>
+      <p>Readable reference implementations of EKF localization, SLAM, global planning, and obstacle avoidance. A textbook, not a vehicle stack.</p>
+      <p class="quiet">Useful for comparing a foreign planner against a known algorithm, not for deploying on a vehicle.</p>
+      <p class="langs">Python</p>
+      <a class="out" href="https://github.com/AtsushiSakai/PythonRobotics">Open repository</a>
+    </article>
+<article class="card repo" data-j="Japan" data-s="verified" data-t="yamato-security/hayabusa digital forensics sigma-based windows event-log timeline and threat-hunting tool. multi-threaded rust. defensive. the source brief filed hayabusa under russia. yamato security is a japanese group. hayabusa (隼) is a peregrine falcon. it does not belong in an offensive-tooling column. rust">
+      <p class="kicker">Japan · Verified</p>
+      <h3>Yamato-Security/hayabusa</h3>
+      <p class="domain">Digital forensics</p>
+      <p>Sigma-based Windows event-log timeline and threat-hunting tool. Multi-threaded Rust. Defensive.</p>
+      <p class="quiet">The source brief filed Hayabusa under Russia. Yamato Security is a Japanese group. Hayabusa (隼) is a peregrine falcon. It does not belong in an offensive-tooling column.</p>
+      <p class="langs">Rust</p>
+      <a class="out" href="https://github.com/Yamato-Security/hayabusa">Open repository</a>
+    </article>
+<article class="card repo" data-j="China" data-s="verified" data-t="horizonrobotics/holoagent embodied ai unified embodied-agent framework: closed-loop execution, 3d spatial memory, and callable robot skills (embodied agentos, memory layer, skill layer). navigation piece is fsr-vln. horizon robotics. checked against the public readme. this is the concrete chinese embodied-agent example in this edition. python">
+      <p class="kicker">China · Verified</p>
+      <h3>HorizonRobotics/HoloAgent</h3>
+      <p class="domain">Embodied AI</p>
+      <p>Unified embodied-agent framework: closed-loop execution, 3D spatial memory, and callable robot skills (Embodied AgentOS, memory layer, skill layer). Navigation piece is FSR-VLN.</p>
+      <p class="quiet">Horizon Robotics. Checked against the public README. This is the concrete Chinese embodied-agent example in this edition.</p>
+      <p class="langs">Python</p>
+      <a class="out" href="https://github.com/HorizonRobotics/HoloAgent">Open repository</a>
+    </article>
+<article class="card repo" data-j="China" data-s="cited" data-t="sense-gvt/fast-bev computer vision cited as a low-latency multi-camera bird's-eye-view detection baseline. fast-bev as a method is real; this exact organization path was not re-opened in the verification pass. treat as a perception candidate, not as a confirmed dependency, until the repository is opened and licensed. python">
+      <p class="kicker">China · Cited</p>
+      <h3>Sense-GVT/Fast-BEV</h3>
+      <p class="domain">Computer vision</p>
+      <p>Cited as a low-latency multi-camera Bird's-Eye-View detection baseline. Fast-BEV as a method is real; this exact organization path was not re-opened in the verification pass.</p>
+      <p class="quiet">Treat as a perception candidate, not as a confirmed dependency, until the repository is opened and licensed.</p>
+      <p class="langs">Python</p>
+      <a class="out" href="https://github.com/Sense-GVT/Fast-BEV">Open repository</a>
+    </article>
+<article class="card repo" data-j="China" data-s="cited" data-t="generalized-intelligence/gaas autonomous aviation cited uav / vtol autonomy stack. the brief points here for aircraft software rather than road vehicles. historical project. confirm it is still maintained before anyone plans on it. c++, python">
+      <p class="kicker">China · Cited</p>
+      <h3>generalized-intelligence/GAAS</h3>
+      <p class="domain">Autonomous aviation</p>
+      <p>Cited UAV / VTOL autonomy stack. The brief points here for aircraft software rather than road vehicles.</p>
+      <p class="quiet">Historical project. Confirm it is still maintained before anyone plans on it.</p>
+      <p class="langs">C++, Python</p>
+      <a class="out" href="https://github.com/generalized-intelligence/GAAS">Open repository</a>
+    </article>
+<article class="card repo" data-j="Japan" data-s="cited" data-t="vision_pilot adas the brief describes a mapless level 2+ stack with three models: autospeed, autosteer, and autodrive, covering lane keeping, adaptive cruise, and emergency braking. no repository path survived cleanup of the source brief. do not invent a url. leave it cited until a maintainer path is known. not confirmed">
+      <p class="kicker">Japan · Cited</p>
+      <h3>vision_pilot</h3>
+      <p class="domain">ADAS</p>
+      <p>The brief describes a mapless Level 2+ stack with three models: AutoSpeed, AutoSteer, and AutoDrive, covering lane keeping, adaptive cruise, and emergency braking.</p>
+      <p class="quiet">No repository path survived cleanup of the source brief. Do not invent a URL. Leave it cited until a maintainer path is known.</p>
+      <p class="langs">Not confirmed</p>
+      <p class="quiet">No confirmed URL.</p>
+    </article>
+<article class="card repo" data-j="Russia" data-s="cited" data-t="paulpogoda/osint-tools-russia osint cited collection of scrapers and parsers aimed at russian public records, court materials, and corporate registries. a repository about russian open sources is not evidence the maintainer is in russia. confirm the remote before mirroring. python, shell">
+      <p class="kicker">Russia · Cited</p>
+      <h3>paulpogoda/OSINT-Tools-Russia</h3>
+      <p class="domain">OSINT</p>
+      <p>Cited collection of scrapers and parsers aimed at Russian public records, court materials, and corporate registries.</p>
+      <p class="quiet">A repository about Russian open sources is not evidence the maintainer is in Russia. Confirm the remote before mirroring.</p>
+      <p class="langs">Python, Shell</p>
+      <a class="out" href="https://github.com/paulpogoda/OSINT-Tools-Russia">Open repository</a>
+    </article>
+<article class="card repo" data-j="Russia" data-s="cited" data-t="bushidouk/russian-apt-tool-matrix threat intelligence cited matrix of russian apt tactics, techniques, and procedures, including living-off-the-land binaries. a catalog of adversary behavior. the maintainer handle is bushidouk. this is not a russian-origin offensive codebase, and it is not something to integrate into a vehicle. markdown">
+      <p class="kicker">Russia · Cited</p>
+      <h3>BushidoUK/Russian-APT-Tool-Matrix</h3>
+      <p class="domain">Threat intelligence</p>
+      <p>Cited matrix of Russian APT tactics, techniques, and procedures, including living-off-the-land binaries. A catalog of adversary behavior.</p>
+      <p class="quiet">The maintainer handle is BushidoUK. This is not a Russian-origin offensive codebase, and it is not something to integrate into a vehicle.</p>
+      <p class="langs">Markdown</p>
+      <a class="out" href="https://github.com/BushidoUK/Russian-APT-Tool-Matrix">Open repository</a>
+    </article>
+<article class="card repo" data-j="Russia" data-s="cited" data-t="ksword kernel security the brief describes a windows anti-rootkit and kernel-inspection utility: driver-signature checks, hypervisor-hook detection, process-memory inspection. no public path was confirmed. do not deploy a kernel driver from an unconfirmed name. c++ (as described)">
+      <p class="kicker">Russia · Cited</p>
+      <h3>KSword</h3>
+      <p class="domain">Kernel security</p>
+      <p>The brief describes a Windows anti-rootkit and kernel-inspection utility: driver-signature checks, hypervisor-hook detection, process-memory inspection.</p>
+      <p class="quiet">No public path was confirmed. Do not deploy a kernel driver from an unconfirmed name.</p>
+      <p class="langs">C++ (as described)</p>
+      <p class="quiet">No confirmed URL.</p>
+    </article>
+<article class="card repo" data-j="Israel" data-s="cited" data-t="noblerworks-hq/ironsight situational awareness the brief describes a next.js command board aggregating aircraft, ais, telegram, and alert feeds with no external api keys. the source text corrupted the name (iron + sight split by markup). the path was not confirmed. do not treat the feed list as audited. typescript">
+      <p class="kicker">Israel · Cited</p>
+      <h3>NoblerWorks-HQ/IRONSIGHT</h3>
+      <p class="domain">Situational awareness</p>
+      <p>The brief describes a Next.js command board aggregating aircraft, AIS, Telegram, and alert feeds with no external API keys.</p>
+      <p class="quiet">The source text corrupted the name (IRON + SIGHT split by markup). The path was not confirmed. Do not treat the feed list as audited.</p>
+      <p class="langs">TypeScript</p>
+      <p class="quiet">No confirmed URL.</p>
+    </article>
+<article class="card repo" data-j="Global" data-s="verified" data-t="bilawalsidhu/gods-eye-view spatial intelligence browser spatial-intelligence app: photorealistic 3d globe, live open geospatial layers (aircraft, ships, satellites, weather, cameras). webgl. the source brief filed this under israel. it is a global open-source project. use it as a picture of fleet state, not as a national case study. javascript">
+      <p class="kicker">Global · Verified</p>
+      <h3>bilawalsidhu/gods-eye-view</h3>
+      <p class="domain">Spatial intelligence</p>
+      <p>Browser spatial-intelligence app: photorealistic 3D globe, live open geospatial layers (aircraft, ships, satellites, weather, cameras). WebGL.</p>
+      <p class="quiet">The source brief filed this under Israel. It is a global open-source project. Use it as a picture of fleet state, not as a national case study.</p>
+      <p class="langs">JavaScript</p>
+      <a class="out" href="https://github.com/bilawalsidhu/gods-eye-view">Open repository</a>
+    </article>
+<article class="card repo" data-j="Global" data-s="verified" data-t="sqlmapproject/sqlmap security assessment public tool that automates detection of sql injection against systems you are authorized to test. not a russian project. not part of a vehicle stack. listed so the source brief's filing can be corrected in place. no usage procedure is included. python">
+      <p class="kicker">Global · Verified</p>
+      <h3>sqlmapproject/sqlmap</h3>
+      <p class="domain">Security assessment</p>
+      <p>Public tool that automates detection of SQL injection against systems you are authorized to test.</p>
+      <p class="quiet">Not a Russian project. Not part of a vehicle stack. Listed so the source brief's filing can be corrected in place. No usage procedure is included.</p>
+      <p class="langs">Python</p>
+      <a class="out" href="https://github.com/sqlmapproject/sqlmap">Open repository</a>
+    </article>
+<article class="card repo" data-j="Global" data-s="cited" data-t="softmata/horus robotics runtime the brief describes a rust distributed robotics runtime meant to replace legacy ros layers, with python bindings. not confirmed against a public default branch in this pass. do not design the ipc layer around it until it is. rust, python">
+      <p class="kicker">Global · Cited</p>
+      <h3>softmata/horus</h3>
+      <p class="domain">Robotics runtime</p>
+      <p>The brief describes a Rust distributed robotics runtime meant to replace legacy ROS layers, with Python bindings.</p>
+      <p class="quiet">Not confirmed against a public default branch in this pass. Do not design the IPC layer around it until it is.</p>
+      <p class="langs">Rust, Python</p>
+      <p class="quiet">No confirmed URL.</p>
+    </article>
+      </div>
+    </section>
+    <section id="stack">
+      <p class="eyebrow sage">Proposed, not deployed</p>
+      <h2>Four layers, only with pieces you can clone</h2>
+      <div class="stack">
+        <article class="card">
+              <p class="kicker">01 · Integrity</p>
+              <h3>Under the control loop, not inside it</h3>
+              <p class="quiet">Watch memory and privileges on the edge computer with mechanisms that do not sit on the control deadline. On Linux, that is eBPF-class tracing. On a Windows engineering station, use only a forensic tool whose publisher you have opened. KSword is a name in the brief, not a driver to load. Hayabusa belongs here as a log timeline after an incident, not as a real-time node.</p>
+            </article>
+<article class="card">
+              <p class="kicker">02 · Transport</p>
+              <h3>Zero-copy between perception processes</h3>
+              <p class="quiet">Agnocast is the verified way to hand ROS 2 messages across processes without a serialize-and-copy on the hot path. Nebula is the driver boundary in front of it. Point clouds and camera buffers should cross that boundary once. A cited Rust runtime (Horus) is not part of this layer until the repository is real.</p>
+            </article>
+<article class="card">
+              <p class="kicker">03 · Perception and planning</p>
+              <h3>Neural candidates, rule-based veto</h3>
+              <p class="quiet">Multi-camera detection of the Fast-BEV kind, still cited, proposes objects. AutoE2E, verified, proposes a trajectory without requiring an HD map. Autoware's behavior planner is the place those candidates are accepted or refused. When a map is present, the rule stack stays in charge. When the map is missing or stale, the handoff is to the map-optional model, not to an unreviewed network from an unread fork.</p>
+            </article>
+<article class="card">
+              <p class="kicker">04 · Fleet picture</p>
+              <h3>State leaves the vehicle in small messages</h3>
+              <p class="quiet">Telemetry has to survive a bad radio. That is a protocol requirement, which is all the Albania vector currently is. The display side is a globe or map that can show position, health, and open-source context. gods-eye-view is the verified example of the display. It is not a command link.</p>
+            </article>
+      </div>
+    </section>
+    <section id="pipeline">
+      <p class="eyebrow sage">Design for the intake job</p>
+      <h2>Translation without corrupting code</h2>
+      <div class="grid">
+        <article class="card">
+              <p class="kicker sage">Stage 1</p>
+              <h3>Discovery and a velocity score</h3>
+              <p class="quiet">A daily job queries GitHub and, where accounts exist, Gitee and GitFlic. It does not crawl the web at large. Filters are topic and language first, geography second, and geography only from what the host actually exposes.</p>
+              <ul><li>Topics: robotics, autonomous vehicles, physical AI, ROS, kernel, forensics, networking.</li><li>Score from commits, pull requests, star growth, and issue activity over a short window. The threshold is a local choice, written down, not a magic number.</li><li>A high score puts a repository in a review queue. It does not auto-merge anything.</li></ul>
+            </article>
+<article class="card">
+              <p class="kicker sage">Stage 2</p>
+              <h3>Translate text, leave the syntax tree alone</h3>
+              <p class="quiet">Machine translation of a whole file rewrites keywords and identifiers. The translator may only see comments, docstrings, and markdown.</p>
+              <ul><li>Parse Python, C++, Rust, or Go with that language's parser.</li><li>Lift comments, docstrings, and docs/ Markdown out of the tree.</li><li>Translate those strings with a glossary for ROS 2, IEEE, and ISO terms.</li><li>Write the English back into the same nodes. Formatting, names, and indentation stay.</li></ul>
+            </article>
+<article class="card">
+              <p class="kicker sage">Stage 3</p>
+              <h3>English documentation forks</h3>
+              <p class="quiet">A downstream mirror is for reading. It is not a claim of authorship. Licenses travel with the code. If the upstream license forbids a mirror, there is no mirror.</p>
+              <ul><li>Webhook or a daily fetch on the upstream default branch.</li><li>Diff only markdown and the extracted docstrings.</li><li>Open a pull request on the English fork with the translation and a link to the upstream commit.</li><li>A person merges it. The bot does not push to main.</li></ul>
+            </article>
+<article class="card">
+              <p class="kicker sage">Stage 4</p>
+              <h3>Interface index against the stack you already run</h3>
+              <p class="quiet">Embeddings are for search, not for a press release. Extract signatures you can actually diff: C++ headers, ROS interfaces, Python functions, HTTP routes.</p>
+              <ul><li>Embed those signatures and compare them to Autoware, and to whatever else you really ship.</li><li>A daily note names the module, the upstream commit, the license, and whether the interface shape matches a driver you have.</li><li>Compatibility is a hypothesis until hardware-in-the-loop says otherwise.</li></ul>
+            </article>
+      </div>
+    </section>
+    <section id="roadmap">
+      <p class="eyebrow sage">Order of work</p>
+      <h2>Three phases</h2>
+      <div class="grid three">
+        <article class="card">
+              <p class="kicker">Phase 1</p>
+              <h3>Ingestion</h3>
+              <p class="quiet">API clients for GitHub, Gitee, and GitFlic with rate-limit handling. Store the raw snapshot, the commit list, and the metadata you scored. No translation yet. Geography filters only where the host provides them.</p>
+            </article>
+<article class="card">
+              <p class="kicker">Phase 2</p>
+              <h3>Translation and forks</h3>
+              <p class="quiet">Parsers for Python, C++, Rust, and Go. A glossary. An organization that holds English documentation forks. A bot that opens pull requests and stops there.</p>
+            </article>
+<article class="card">
+              <p class="kicker">Phase 3</p>
+              <h3>Index and the bench</h3>
+              <p class="quiet">Vector search over real interfaces. A daily note. Only then, and only for a module whose license allows it, a hardware-in-the-loop run. First candidates from this edition: Agnocast and AutoE2E. Not KSword. Not an unconfirmed dashboard.</p>
+            </article>
+      </div>
+    </section>
+    <section id="notes">
+      <p class="eyebrow sage">What changed from the source brief</p>
+      <h2>Intake notes</h2>
+      <div class="stack">
+        <article class="card">
+              <h3>Hayabusa is Japanese</h3>
+              <p class="quiet">Yamato-Security/hayabusa is a defensive Windows forensic tool from Japan. The source brief listed it under Russia.</p>
+            </article>
+<article class="card">
+              <h3>sqlmap is not a Russian vehicle component</h3>
+              <p class="quiet">sqlmapproject/sqlmap is a global SQL-injection assessment tool. It stays in the matrix only so the correction is visible. No procedure for using it is part of this digest.</p>
+            </article>
+<article class="card">
+              <h3>gods-eye-view is not an Israeli project</h3>
+              <p class="quiet">bilawalsidhu/gods-eye-view is a global browser globe. The situational-awareness layer in the stack uses it as an example display, not as a country case.</p>
+            </article>
+<article class="card">
+              <h3>AutoE2E's public checkpoint is not the SwinV2 story</h3>
+              <p class="quiet">The checked model card describes ResNet-50 and BEVFormer V2, six surround cameras, and an optional map. The brief's SwinV2, seven-camera, and 76 fps figures are omitted.</p>
+            </article>
+<article class="card">
+              <h3>Three Rust tools left the Russia column</h3>
+              <p class="quiet">redbpf, sniffglue, and rshijack were not shown to be Russian. Hijacking research is out of the integration roadmap entirely.</p>
+            </article>
+<article class="card">
+              <h3>IRONSIGHT, KSword, vision_pilot, and Horus are names</h3>
+              <p class="quiet">They remain in the matrix as cited rows with no pretence of a checked default branch. South Korea and Albania stay vectors because the brief named no repository.</p>
+            </article>
+<article class="card">
+              <h3>Markup</h3>
+              <p class="quiet">The source text contained broken span markers inside repository names (IRONSIGHT, agnocast, HoloAgent, hayabusa, gods-eye-view, autowarefoundation). Those are cleaned here.</p>
+            </article>
+      </div>
+      <p class="quiet end">Published on the GitHub Pages hub beside Half a Mile, Newsroom Desk, and OmniKali. This page does not replace those sites. Licenses of upstream projects still govern any fork. Nothing here is an authorization to test, scan, or mirror a system you do not own.</p>
+      <p class="links"><a href="/">Half a Mile</a><a href="/desk/">Newsroom Desk</a><a href="/omnikali/">OmniKali</a></p>
+    </section>
+  </main>
+  <script>
+    const places = ["All","China","Japan","Russia","Israel","South Korea","Albania","Global"];
+    const states = [["All","Any status"],["verified","Verified"],["cited","Cited"]];
+    let place = "All";
+    let state = "All";
+    const q = document.getElementById("q");
+    const repos = [...document.querySelectorAll(".repo")];
+    function chip(parent, label, pressed, onClick) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = label;
+      b.setAttribute("aria-pressed", pressed ? "true" : "false");
+      b.addEventListener("click", onClick);
+      parent.appendChild(b);
+      return b;
+    }
+    const placeHost = document.getElementById("places");
+    const stateHost = document.getElementById("states");
+    const placeBtns = places.map((name) => chip(placeHost, name, name === "All", () => { place = name; paint(); }));
+    const stateBtns = states.map(([id, label]) => chip(stateHost, label, id === "All", () => { state = id; paint(); }));
+    function paint() {
+      placeBtns.forEach((b, i) => b.setAttribute("aria-pressed", places[i] === place ? "true" : "false"));
+      stateBtns.forEach((b, i) => b.setAttribute("aria-pressed", states[i][0] === state ? "true" : "false"));
+      const query = q.value.trim().toLowerCase();
+      let n = 0;
+      for (const el of repos) {
+        const ok = (place === "All" || el.dataset.j === place)
+          && (state === "All" || el.dataset.s === state)
+          && (!query || el.dataset.t.includes(query));
+        el.hidden = !ok;
+        if (ok) n += 1;
+      }
+      document.getElementById("count").textContent = n + (n === 1 ? " row" : " rows");
+    }
+    q.addEventListener("input", paint);
+    paint();
+  </script>
+</body>
+</html>

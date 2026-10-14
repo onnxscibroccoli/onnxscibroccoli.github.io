@@ -16,6 +16,7 @@ Approximately 31 tracked files are present, including:
 - `desk/record/` — reporting record;
 - `law/` and `sources/` — Half a Mile supporting pages;
 - `omnikali/` — OmniKali public door and discovery/security pages;
+- `digest/` — Systems Digest: autonomous-systems repository brief and localization pipeline;
 - shared images and favicons.
 
 ## Development cycle
