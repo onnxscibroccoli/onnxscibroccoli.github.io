@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Systems intake</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,560&display=swap" />
+  <style>
+    :root { color-scheme: dark; --bg:#0e1210; --surface:#171d1a; --fg:#e7eee9; --muted:#93a399; --accent:#d6b25e; --line:#2c3833; }
+    body { margin:0; background:var(--bg); color:var(--fg); font-family:"IBM Plex Sans",sans-serif; line-height:1.55; }
+    main { width:min(46rem, calc(100% - 2rem)); margin:0 auto; padding:2.5rem 0 4rem; }
+    h1,h2 { font-family:"Source Serif 4",Georgia,serif; letter-spacing:-0.02em; }
+    h1 { font-size:clamp(2rem,5vw,3rem); line-height:1.15; }
+    a { color:var(--accent); }
+    .kicker { letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-size:.75rem; }
+    .quiet { color:var(--muted); }
+    .card { background:var(--surface); border:1px solid var(--line); border-radius:.875rem; padding:1rem 1.1rem; margin:0 0 .75rem; }
+    ul { padding-left:1.1rem; }
+    code { color:var(--fg); }
+  </style>
+</head>
+<body>
+<main>
+  <p class="kicker">Daily GitHub Action · 2026-10-14 04:52 UTC</p>
+  <h1>Forks, English briefs, and where they fit.</h1>
+  <p class="quiet">Permissive upstreams only. The action refuses a fork when the license is missing or copyleft. Economic value means the work runs on a machine the person already has. Community value means the license stays attached. Disability support means the accessibility tree and a local voice come before a vendor screenshot. Everyday means a person who is not a lab can tell what ran.</p>
+  <p><a href="https://github.com/onnxscibroccoli/systems-intake">Repository</a> · <a href="https://onnxscibroccoli.github.io/digest/">Systems Digest</a> · <a href="https://onnxscibroccoli.github.io/">Half a Mile</a></p>
+  <h2>Repositories this account already runs</h2>
+  <ul><li><a href="https://github.com/onnxscibroccoli/broccoli-core"><code>broccoli-core</code></a> — Phone-side automation kernel. Text becomes a classified action, then a confirmed result, on the device.</li><li><a href="https://github.com/onnxscibroccoli/broccoli-rish"><code>broccoli-rish</code></a> — The Shizuku/rish transport. The phone stays the executor.</li><li><a href="https://github.com/onnxscibroccoli/dectalk-live"><code>dectalk-live</code></a> — Speech in the browser. No remote voice meter. WAV stays on the machine.</li><li><a href="https://github.com/onnxscibroccoli/Grasshopper"><code>Grasshopper</code></a> — Agent control plane: tasks, locks, state, recovery. Reproducible from source.</li><li><a href="https://github.com/onnxscibroccoli/helix"><code>helix</code></a> — A persistent desktop in the browser, for people who do not have a workstation.</li><li><a href="https://github.com/onnxscibroccoli/kiln"><code>kiln</code></a> — Linux desktop in the browser, with searchable images and a Git clone path.</li><li><a href="https://github.com/onnxscibroccoli/noVNC"><code>noVNC</code></a> — Fork of the web VNC client those desktops speak.</li><li><a href="https://github.com/onnxscibroccoli/oauth2-proxy"><code>oauth2-proxy</code></a> — Fork of the login proxy in front of a shared desktop.</li><li><a href="https://github.com/onnxscibroccoli/newsroom-desk"><code>newsroom-desk</code></a> — Plain-language investigations, including Android accessibility and what a phone is allowed to do in the background.</li><li><a href="https://github.com/onnxscibroccoli/morphe-patches"><code>morphe-patches</code></a> — Human-written Android patches for apps a person already has.</li><li><a href="https://github.com/onnxscibroccoli/lattice-audit"><code>lattice-audit</code></a> — Public note that Lattice is not a fund and not a promised return.</li></ul>
+  <h2>Forked this intake</h2>
+  <article class="card">
+  <p class="kicker">Apache-2.0 · everyday, disability, economic</p>
+  <h2><a href="https://github.com/onnxscibroccoli/Shizuku">Shizuku</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/RikkaApps/Shizuku">RikkaApps/Shizuku</a></p>
+  <p>Shizuku lets an ordinary Android app use ADB-level APIs through a small service the person starts themselves, instead of requiring root.</p>
+  <p>broccoli-rish is the transport. Shizuku is the privilege boundary. Keep them separate. The phone runs the command. A cloud agent only sends the text of the request.</p>
+  <p class="quiet">Do not: Do not hide the Shizuku start step. Do not ship a private fork that drifts from upstream security fixes. Do not use the API to click through another app's purchase screen.</p>
+  <ul><li><code>broccoli-rish</code> — Keep lib/rish_run.sh as the only wrapper. Record the upstream Shizuku release it was tested against in the brief's commit, not in a screenshot.</li><li><code>broccoli-core</code> — The kernel tick may call rish. It must not shell out to su. If Shizuku is not running, the tick returns a spoken and written 'not ready' instead of a fake success.</li><li><code>dectalk-live</code> — Speak that 'not ready' locally. Do not send the failure text to a paid voice API.</li></ul>
+  <p class="quiet">Other agent stacks: Any agent runtime can use the same split. The agent emits a request. A local executor holding Shizuku permission runs it. The agent never receives a shell on the phone.</p>
+  <p class="quiet">Fork step: exists. Brief: unchanged.</p>
+</article><article class="card">
+  <p class="kicker">MIT · disability, everyday, community</p>
+  <h2><a href="https://github.com/onnxscibroccoli/nvgt-bridge">nvgt-bridge</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/trypsynth/nvgt-bridge">trypsynth/nvgt-bridge</a></p>
+  <p>A small Kotlin accessibility service that gives an audio game direct touch while TalkBack keeps menus, dialogs, and the keyboard.</p>
+  <p>Broccoli should observe the accessibility tree and leave TalkBack in charge of system UI. Grabbing the whole screen is how automation breaks a blind user's phone.</p>
+  <p class="quiet">Do not: Do not disable TalkBack. Do not read notification text off the device to a remote model.</p>
+  <ul><li><code>broccoli-core</code> — Prefer accessibility-node actions (click a labeled node) over coordinates. If TalkBack is on, do not steal focus from it except for the node named in the request.</li><li><code>dectalk-live</code> — DECtalk is an extra voice for app results. It is not a replacement for the system screen reader.</li><li><code>newsroom-desk</code> — When a story is about background control of a phone, this bridge is the counter-example: the user can tell which layer has the gesture.</li></ul>
+  <p class="quiet">Other agent stacks: Expose two tools to the model: speak_result and activate_labeled_node. Do not expose a raw swipe-anywhere tool when a screen reader is on.</p>
+  <p class="quiet">Fork step: exists. Brief: unchanged.</p>
+</article><article class="card">
+  <p class="kicker">MIT · disability, community, everyday</p>
+  <h2><a href="https://github.com/onnxscibroccoli/A11y-Box-Android">A11y-Box-Android</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/rwapp/A11y-Box-Android">rwapp/A11y-Box-Android</a></p>
+  <p>A small sample app of Android accessibility APIs: labels, focus, and the checks a developer is supposed to run.</p>
+  <p>A control is fair game for automation only when it has a name a person using a screen reader would also hear.</p>
+  <p class="quiet">Do not: Do not treat an unlabeled button as acceptable because a vision model can guess it.</p>
+  <ul><li><code>broccoli-core</code> — Add an offline fixture, copied under its MIT license with the copyright kept, that the kernel uses in smoke tests: refuse to activate a node with an empty content description.</li><li><code>newsroom-desk</code> — Cite the sample when explaining why a banking or chat app that hides the label fails both disabled users and any honest automation.</li></ul>
+  <p class="quiet">Other agent stacks: Put the accessibility tree, not a screenshot, in the tool result. Screenshots are a fallback when the tree is empty, and they should stay on the device.</p>
+  <p class="quiet">Fork step: exists. Brief: unchanged.</p>
+</article><article class="card">
+  <p class="kicker">MIT · community, disability</p>
+  <h2><a href="https://github.com/onnxscibroccoli/android-accessibility-resources">android-accessibility-resources</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/dotjay/android-accessibility-resources">dotjay/android-accessibility-resources</a></p>
+  <p>A short, maintained-by-people reading list for designing and building accessible Android apps.</p>
+  <p>Newsroom Desk can point readers at primary accessibility writing instead of paraphrasing it.</p>
+  <p class="quiet">Do not: Do not paste the list into a model prompt and publish the model's summary as the list.</p>
+  <ul><li><code>newsroom-desk</code> — Link the upstream and the fork from the Android accessibility story's record page. The record holds the URL. The story holds the finding.</li></ul>
+  <p class="quiet">Other agent stacks: Give an agent this list as allowed reading. Do not let it invent citations that are not on the list.</p>
+  <p class="quiet">Fork step: exists. Brief: unchanged.</p>
+</article><article class="card">
+  <p class="kicker">MIT · community, economic, everyday</p>
+  <h2><a href="https://github.com/onnxscibroccoli/PythonRobotics">PythonRobotics</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/AtsushiSakai/PythonRobotics">AtsushiSakai/PythonRobotics</a></p>
+  <p>One-file Python references for localization, SLAM, path planning, and obstacle avoidance. A textbook, not a vehicle stack.</p>
+  <p>A Grasshopper task can shell out to one example script for a local plan. The result is a path, not a subscription.</p>
+  <p class="quiet">Do not: Do not put this code on a car. Do not wrap it in a paid API and strip the MIT notice.</p>
+  <ul><li><code>Grasshopper</code> — Register a task type local-python. The task record stores the script path, the inputs, and the stdout. Recovery replays the same command. No network in the task.</li><li><code>broccoli-core</code> — Only if the phone image actually has the script. Otherwise the tick says the planner is not installed. Do not pretend.</li></ul>
+  <p class="quiet">Other agent stacks: Call the script as a tool with a working directory and a timeout. Return the path geometry. Keep the MIT copyright in the tool's about text.</p>
+  <p class="quiet">Fork step: exists. Brief: unchanged.</p>
+</article><article class="card">
+  <p class="kicker">Apache-2.0 · economic, everyday</p>
+  <h2><a href="https://github.com/onnxscibroccoli/agnocast">agnocast</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/autowarefoundation/agnocast">autowarefoundation/agnocast</a></p>
+  <p>ROS 2 middleware that moves large messages between processes without copying them. Includes a Linux kernel module. Apache-2.0.</p>
+  <p>Grasshopper tasks that move logs, images, or desktop frames should pass a path or an id. The model sees a description and a size, not the payload.</p>
+  <p class="quiet">Do not: Do not load agnocast-kmod on a phone, a shared desktop, or a CI runner. Do not vendor the C++ into broccoli.</p>
+  <ul><li><code>Grasshopper</code> — Task inputs over a size limit become a resource id in the control plane. The executing environment opens the resource. The model is given the id and a one-line description.</li><li><code>helix</code> — A desktop stream already should not be base64'd into an agent prompt. Keep the RFB session in the browser. The agent gets a screenshot only when a person asks for one frame.</li></ul>
+  <p class="quiet">Other agent stacks: Same rule on any runtime. Tool results carry ids. A separate local reader opens the bytes. This is how a person avoids paying a model to reread a log they already have on disk.</p>
+  <p class="quiet">Fork step: exists. Brief: wrote.</p>
+</article><article class="card">
+  <p class="kicker">Apache-2.0 · community, everyday</p>
+  <h2><a href="https://github.com/onnxscibroccoli/auto_e2e">auto_e2e</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/autowarefoundation/auto_e2e">autowarefoundation/auto_e2e</a></p>
+  <p>Camera-only driving model from the Autoware Foundation. The public checkpoint can run without an HD map. It is not a phone app.</p>
+  <p>Grasshopper can record that shape of task (proposal, then veto) for any local model. The veto is the product. The network is not allowed to act alone.</p>
+  <p class="quiet">Do not: Do not claim this checkpoint runs in Termux. Do not connect it to a vehicle from this account. Respect the checkpoint's own notice on the model card.</p>
+  <ul><li><code>Grasshopper</code> — Model a task state machine: proposed, accepted, rejected. Store who accepted. A model task that skips accepted is a failed task.</li></ul>
+  <p class="quiet">Other agent stacks: If you run your own camera model, publish the input size, the license, and the fact that a rule can override it. Do not hide the model behind a brand name.</p>
+  <p class="quiet">Fork step: exists. Brief: unchanged.</p>
+</article><article class="card">
+  <p class="kicker">Apache-2.0 · everyday, community</p>
+  <h2><a href="https://github.com/onnxscibroccoli/HoloAgent">HoloAgent</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/HorizonRobotics/HoloAgent">HorizonRobotics/HoloAgent</a></p>
+  <p>An embodied-agent loop from Horizon Robotics: observe, retrieve, plan, act, verify, with a memory of the place. The project as a whole is Apache-2.0. Some bundled third-party SLAM pieces are not cleared for commercial use.</p>
+  <p>Grasshopper's tick already has execute and confirm. Add a verify step that checks the world, not the model's own claim of success. Broccoli's confirm step is the phone version of the same idea.</p>
+  <p class="quiet">Do not: Do not import FAST-LIVO2 or HOVSG into a product. Their default licenses restrict commercial use. Do not download robot checkpoints into the phone repo.</p>
+  <ul><li><code>Grasshopper</code> — Name the task states observe, plan, act, verify. verify reads a local sensor or a test, not the model's summary of itself.</li><li><code>broccoli-core</code> — After a tick changes a setting, read the setting back through the accessibility tree or a local API. That read is verify.</li></ul>
+  <p class="quiet">Other agent stacks: Publish the loop. Let another runtime implement verify however it can measure the world. Do not require their users to buy a particular robot.</p>
+  <p class="quiet">Fork step: exists. Brief: wrote.</p>
+</article><article class="card">
+  <p class="kicker">MIT · everyday, disability, economic</p>
+  <h2><a href="https://github.com/onnxscibroccoli/mobilemcp">mobilemcp</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/Magi-Labs/mobilemcp">Magi-Labs/mobilemcp</a></p>
+  <p>An MCP server and Android app that exposes the accessibility tree, with stable node refs, to an agent. Taps and typing go through that tree. MIT. Found by the intake search, then added by hand.</p>
+  <p>Grasshopper can call it as an external tool. broccoli-core remains the on-device kernel. Do not run both as competing clickers. Pick one executor per request.</p>
+  <p class="quiet">Do not: Do not point it at a banking app and let a remote model drive it. Do not turn off TalkBack to make the refs easier.</p>
+  <ul><li><code>Grasshopper</code> — Register mobilemcp as a tool with a device id. Task inputs are a node ref and an action. The task log stores the ref and the result, not a screenshot, unless a person asked for one frame.</li><li><code>broccoli-core</code> — If both can see the tree, broccoli stays the executor for requests that already go through rish. mobilemcp is the path for an agent that only speaks MCP.</li></ul>
+  <p class="quiet">Other agent stacks: Any MCP client can use the same server. The contract is node-ref in, result out. The phone does the click. The model does not get a video stream by default.</p>
+  <p class="quiet">Fork step: exists. Brief: unchanged.</p>
+</article><article class="card">
+  <p class="kicker">Apache-2.0 · disability, everyday, economic, community</p>
+  <h2><a href="https://github.com/onnxscibroccoli/AireOfflineTranslate">AireOfflineTranslate</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/airecode/AireOfflineTranslate">airecode/AireOfflineTranslate</a></p>
+  <p>Face-to-face translation on an Android phone. Speech recognition, translation, and speech synthesis stay on the device after the model download. Apache-2.0.</p>
+  <p>DECtalk speaks English with a known voice and no download. AireOfflineTranslate covers the case where the other person speaks another language. They solve different sentences. Neither should upload the audio.</p>
+  <p class="quiet">Do not: Do not send the microphone stream to a cloud translator as a fallback without an on-screen switch the person can see.</p>
+  <ul><li><code>dectalk-live</code> — Keep DECtalk for short English prompts and confirmations. Link AireOfflineTranslate, do not embed its model, when the task is a two-language conversation.</li><li><code>broccoli-core</code> — A tick that needs a translation returns 'use the on-device translator' rather than calling a paid endpoint.</li></ul>
+  <p class="quiet">Other agent stacks: Offer translate_local as a tool that fails closed when the model is not downloaded. Do not silently switch to a hosted model.</p>
+  <p class="quiet">Fork step: denied. Brief: catalog only.</p>
+</article><article class="card">
+  <p class="kicker">Apache-2.0 · everyday, economic, community</p>
+  <h2><a href="https://github.com/onnxscibroccoli/Quantum-Core-">Quantum-Core-</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/m-mekhlafi/Quantum-Core-">m-mekhlafi/Quantum-Core-</a></p>
+  <p>A small local assistant page: Whisper for speech-to-text, Ollama for the model, Kokoro for speech. Apache-2.0. The person runs all three on their own machine.</p>
+  <p>Grasshopper tasks can call a local Ollama only when the machine has it. DECtalk remains the zero-download English voice. Kokoro is the higher-quality local voice when the person has installed it.</p>
+  <p class="quiet">Do not: Do not require a particular GPU. Do not hide a cloud key in the page.</p>
+  <ul><li><code>Grasshopper</code> — A task type local-model stores the endpoint as 127.0.0.1 and refuses any other host.</li><li><code>dectalk-live</code> — If Kokoro is absent, speak with DECtalk. Absence is a normal state, not an error to paper over.</li><li><code>helix</code> — The browser desktop can open this page on the local machine. It should not proxy the audio off the box.</li></ul>
+  <p class="quiet">Other agent stacks: Bind the model, the recognizer, and the voice to localhost. Document the three ports. Another runtime can swap Ollama for a different local server if the contract stays host-local.</p>
+  <p class="quiet">Fork step: denied. Brief: catalog only.</p>
+</article><article class="card">
+  <p class="kicker">Apache-2.0 · disability, everyday, economic</p>
+  <h2><a href="https://github.com/onnxscibroccoli/StreamAudio">StreamAudio</a></h2>
+  <p class="quiet">Upstream <a href="https://github.com/DezMetal/StreamAudio">DezMetal/StreamAudio</a></p>
+  <p>A long-lived local text-to-speech daemon using Piper, so the first word is not waiting on a process start. Apache-2.0.</p>
+  <p>Grasshopper confirmations on a workstation can go to the daemon. Phone confirmations stay on DECtalk. Same sentence, two speakers, neither billed per character.</p>
+  <p class="quiet">Do not: Do not add a network listener on 0.0.0.0. The daemon binds to localhost.</p>
+  <ul><li><code>Grasshopper</code> — A notifier calls http://127.0.0.1 only. If the daemon is down, write the sentence to the task log and, on a phone path, hand it to DECtalk.</li><li><code>dectalk-live</code> — Do not replace the WASM voice. Offer StreamAudio as the workstation option in the docs, not as a hard dependency.</li></ul>
+  <p class="quiet">Other agent stacks: A speak tool with a required host of 127.0.0.1. Other stacks can point that tool at Piper, DECtalk, or Kokoro. The model only passes text.</p>
+  <p class="quiet">Fork step: denied. Brief: catalog only.</p>
+</article>
+  <h2>Not forked, on purpose</h2>
+  <ul><li><code>Yamato-Security/hayabusa</code> — AGPL-3.0. Useful as a defensive Windows log tool. Not forked, so that license is not pulled into this account's runtime.</li><li><code>bilawalsidhu/gods-eye-view</code> — MIT, but it is a live surveillance-style globe, including camera layers. Not forked and not wired into the phone or desktop repos.</li><li><code>sqlmapproject/sqlmap</code> — Not a component of these repos. Not forked. No procedure is included.</li><li><code>Sense-GVT/Fast-BEV</code> — License file was empty on the check. Not forked until a SPDX license is present.</li><li><code>generalized-intelligence/GAAS</code> — BSD-3-Clause, but the tree is hundreds of megabytes and idle. Not forked. The aviation stack is not part of the phone or desktop work.</li></ul>
+  <h2>Search, not yet forked</h2>
+  <p class="quiet">The daily job searches public repositories for accessibility, speech, and Shizuku-related tools. It records them. It does not fork them until a person adds them to intake/targets.json.</p>
+  <ul><li><a href="https://github.com/Magi-Labs/mobilemcp">Magi-Labs/mobilemcp</a> — Let AI agents use your real Android phone through its accessibility service: screen tree with stable refs, taps, typing, gestures, notifications, apps. MCP server + hub + app.</li><li><a href="https://github.com/nemarpuc/libaoahid">nemarpuc/libaoahid</a> — C++20 host library and C ABI for sending HID input (keyboard, mouse, gamepad, touchscreen, pen) to Android over USB via AOA 2.0 — no root, no ADB, and no accessibility service required on the device.</li><li><a href="https://github.com/watatatata810/swipe-drawer-for-claude">watatatata810/swipe-drawer-for-claude</a> — Unofficial: swipe right in the Claude Android app to open its sidebar (accessibility service, no internet permission)</li><li><a href="https://github.com/wolverinesingh1-droid/skipper-android">wolverinesingh1-droid/skipper-android</a> — Android Accessibility Service that skips ads in YouTube and YouTube Music</li><li><a href="https://github.com/trypsynth/nvgt-bridge">trypsynth/nvgt-bridge</a> — Android accessibility service that gives NVGT audio games direct touch, while keeping TalkBack for menus, dialogs and the keyboard</li><li><a href="https://github.com/MC-Oruc/SpeechGen">MC-Oruc/SpeechGen</a> — Unreal Engine 5.7 offline speech synthesis plugin with verified Kokoro ONNX runtime provisioning.</li><li><a href="https://github.com/DezMetal/StreamAudio">DezMetal/StreamAudio</a> — Hot TTS daemon with a prosody engine. Piper synthesis + procedural Perlin-noise dynamics for natural delivery, optional RVC voice conversion. Runs as a long-lived service so speech starts instantly.</li><li><a href="https://github.com/airecode/AireOfflineTranslate">airecode/AireOfflineTranslate</a> — A face-to-face conversation translator for Android that runs entirely on the device. Speech recognition, translation and speech synthesis all happen locally — after the model is downloaded, no text, audio or image ever leaves the phone.  Translation runs on Gemma 4 via Google's LiteRT-LM runtime.</li><li><a href="https://github.com/m-mekhlafi/Quantum-Core-">m-mekhlafi/Quantum-Core-</a> — A privacy-first, 100% local AI assistant orchestrating speech-to-text (Whisper), intelligence (Ollama LLM), and studio-quality speech synthesis (Kokoro ONNX) into a responsive web interface.</li><li><a href="https://github.com/lancer1911/TTS-Offline">lancer1911/TTS-Offline</a> — Fully offline, privacy-first text-to-speech synthesis for Apple Silicon. Converts text to natural speech entirely on-device using MLX-accelerated Qwen3-TTS, with multi-voice support, per-sentence emotion control, audiobook-grade dialog production, and voice cloning from reference audio. No cloud, no API calls, no data leaves your Mac.</li><li><a href="https://github.com/Kohlrabenschwarz/Shizuku">Kohlrabenschwarz/Shizuku</a> — Unofficial Shizuku 13.6.1 compatibility fork for Android 15 and HyperOS user-service startup issues.</li></ul>
+</main>
+</body>
+</html>
