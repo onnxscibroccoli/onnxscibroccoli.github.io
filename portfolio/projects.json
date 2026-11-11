@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-11",
+  "scope": "curated original repositories; excludes 17 forks",
+  "source_of_truth": "https://github.com/onnxscibroccoli/broccoli-core/issues/102",
+  "caution": "Reported GitHub Actions outcomes are scoped to a workflow run and branch, not generalized into production attestations",
+  "projects": [
+    {
+      "name": "bank-it-operations-lab",
+      "url": "https://github.com/onnxscibroccoli/bank-it-operations-lab",
+      "visibility": "public",
+      "tier": "flagship",
+      "status": "SYNTHETIC_LAB",
+      "source": "https://github.com/onnxscibroccoli/bank-it-operations-lab/blob/main/tests/integration/postgres/run_restore_scenario.sh",
+      "workflow": "https://github.com/onnxscibroccoli/bank-it-operations-lab/actions/runs/41751288188",
+      "evidence_limits": "offline-validation on main; different scope from governance"
+    },
+    {
+      "name": "Grasshopper",
+      "url": "https://github.com/onnxscibroccoli/Grasshopper",
+      "visibility": "public",
+      "tier": "flagship",
+      "status": "REFERENCE_IMPLEMENTATION",
+      "source": "https://github.com/onnxscibroccoli/Grasshopper/blob/main/test/transactional-state-store.test.mjs",
+      "workflow": "https://github.com/onnxscibroccoli/Grasshopper/actions/runs/43010665531",
+      "evidence_limits": "reference tests on development branch; default JSON storage multi-process limitations"
+    },
+    {
+      "name": "broccoli-core",
+      "url": "https://github.com/onnxscibroccoli/broccoli-core",
+      "visibility": "public",
+      "tier": "flagship",
+      "status": "EXPERIMENTAL",
+      "source": "https://github.com/onnxscibroccoli/broccoli-core/blob/main/runtime/kernel.py",
+      "workflow": "https://github.com/onnxscibroccoli/broccoli-core/actions/runs/42961641966",
+      "evidence_limits": "Parallax APK built on feature branch; no verified release"
+    },
+    {
+      "name": "helix",
+      "url": "https://github.com/onnxscibroccoli/helix",
+      "visibility": "public",
+      "tier": "flagship",
+      "status": "STATIC_VALIDATED",
+      "source": "https://github.com/onnxscibroccoli/helix/blob/main/.github/workflows/validate.yml",
+      "workflow": "https://github.com/onnxscibroccoli/helix/actions/runs/43029338390",
+      "evidence_limits": "HELIX_SKIP_LIVE=1; KVM runtime not verified here"
+    },
+    {
+      "name": "accubook",
+      "url": "https://github.com/onnxscibroccoli/accubook",
+      "visibility": "public",
+      "tier": "flagship",
+      "status": "IMPLEMENTATION_IN_PR",
+      "source": "https://github.com/onnxscibroccoli/accubook/blob/main/core/accubook.py",
+      "workflow": "https://github.com/onnxscibroccoli/accubook/actions/runs/42430101238",
+      "evidence_limits": "Android build from import PR #2, not on main"
+    },
+    {
+      "name": "TCL-orc",
+      "url": "https://github.com/onnxscibroccoli/TCL-orc",
+      "visibility": "public",
+      "tier": "flagship",
+      "status": "EXPERIMENTAL",
+      "source": "https://github.com/onnxscibroccoli/TCL-orc/blob/main/src/tcl/consensus/engine.py",
+      "workflow": "https://github.com/onnxscibroccoli/TCL-orc/actions/runs/40054917158",
+      "evidence_limits": "main CI success; docs gate failed on same commit"
+    },
+    {
+      "name": "civicpatch",
+      "url": "https://github.com/onnxscibroccoli/civicpatch",
+      "visibility": "public",
+      "tier": "flagship",
+      "status": "EARLY_STAGE",
+      "source": "https://github.com/onnxscibroccoli/civicpatch/blob/main/.github/workflows/validate-data.yml",
+      "workflow": "https://github.com/onnxscibroccoli/civicpatch/actions/runs/43056924311",
+      "evidence_limits": "data validation not proof of complete jurisdiction coverage"
+    },
+    {
+      "name": "broccoli-rish",
+      "url": "https://github.com/onnxscibroccoli/broccoli-rish",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "systems-intake",
+      "url": "https://github.com/onnxscibroccoli/systems-intake",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "omnikali",
+      "url": "https://github.com/onnxscibroccoli/omnikali",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "omn-kali-knowledge-graph-master",
+      "url": "https://github.com/onnxscibroccoli/omn-kali-knowledge-graph-master",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "kiln",
+      "url": "https://github.com/onnxscibroccoli/kiln",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "Androidd-cloud-computing-compainion",
+      "url": "https://github.com/onnxscibroccoli/Androidd-cloud-computing-compainion",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "dectalk-live",
+      "url": "https://github.com/onnxscibroccoli/dectalk-live",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "grasshopper-kubernetes",
+      "url": "https://github.com/onnxscibroccoli/grasshopper-kubernetes",
+      "visibility": "private",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "GPTOmniKali-full-stack",
+      "url": "https://github.com/onnxscibroccoli/GPTOmniKali-full-stack",
+      "visibility": "private",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "kali-node",
+      "url": "https://github.com/onnxscibroccoli/kali-node",
+      "visibility": "private",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "onnxscibroccoli.github.io",
+      "url": "https://github.com/onnxscibroccoli/onnxscibroccoli.github.io",
+      "visibility": "public",
+      "tier": "site",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "omnikali-link",
+      "url": "https://github.com/onnxscibroccoli/omnikali-link",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "half-a-mile",
+      "url": "https://github.com/onnxscibroccoli/half-a-mile",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "newsroom-desk",
+      "url": "https://github.com/onnxscibroccoli/newsroom-desk",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "lattice-audit",
+      "url": "https://github.com/onnxscibroccoli/lattice-audit",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "lattice",
+      "url": "https://github.com/onnxscibroccoli/lattice",
+      "visibility": "private",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "shizuku-silent-mic",
+      "url": "https://github.com/onnxscibroccoli/shizuku-silent-mic",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "android-virtual-mic-shizuku",
+      "url": "https://github.com/onnxscibroccoli/android-virtual-mic-shizuku",
+      "visibility": "private",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "shizuku-virtual-mic",
+      "url": "https://github.com/onnxscibroccoli/shizuku-virtual-mic",
+      "visibility": "private",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "ara-github-write-test",
+      "url": "https://github.com/onnxscibroccoli/ara-github-write-test",
+      "visibility": "private",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "ara-github-write-test-2",
+      "url": "https://github.com/onnxscibroccoli/ara-github-write-test-2",
+      "visibility": "private",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    },
+    {
+      "name": "trash",
+      "url": "https://github.com/onnxscibroccoli/trash",
+      "visibility": "public",
+      "tier": "supporting",
+      "status": "NOT_ASSESSED_IN_DETAIL",
+      "source": null,
+      "workflow": null,
+      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
+    }
+  ]
+}
