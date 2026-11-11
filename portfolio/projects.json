@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "generated_at": "2026-11-11",
-  "scope": "curated original repositories; excludes 17 forks",
+  "scope": "21 public original repositories (8 private names and links intentionally withheld); 17 forks excluded",
   "source_of_truth": "https://github.com/onnxscibroccoli/broccoli-core/issues/102",
   "caution": "Reported GitHub Actions outcomes are scoped to a workflow run and branch, not generalized into production attestations",
   "projects": [
@@ -146,36 +146,6 @@
       "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
     },
     {
-      "name": "grasshopper-kubernetes",
-      "url": "https://github.com/onnxscibroccoli/grasshopper-kubernetes",
-      "visibility": "private",
-      "tier": "supporting",
-      "status": "NOT_ASSESSED_IN_DETAIL",
-      "source": null,
-      "workflow": null,
-      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
-    },
-    {
-      "name": "GPTOmniKali-full-stack",
-      "url": "https://github.com/onnxscibroccoli/GPTOmniKali-full-stack",
-      "visibility": "private",
-      "tier": "supporting",
-      "status": "NOT_ASSESSED_IN_DETAIL",
-      "source": null,
-      "workflow": null,
-      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
-    },
-    {
-      "name": "kali-node",
-      "url": "https://github.com/onnxscibroccoli/kali-node",
-      "visibility": "private",
-      "tier": "supporting",
-      "status": "NOT_ASSESSED_IN_DETAIL",
-      "source": null,
-      "workflow": null,
-      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
-    },
-    {
       "name": "onnxscibroccoli.github.io",
       "url": "https://github.com/onnxscibroccoli/onnxscibroccoli.github.io",
       "visibility": "public",
@@ -226,59 +196,9 @@
       "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
     },
     {
-      "name": "lattice",
-      "url": "https://github.com/onnxscibroccoli/lattice",
-      "visibility": "private",
-      "tier": "supporting",
-      "status": "NOT_ASSESSED_IN_DETAIL",
-      "source": null,
-      "workflow": null,
-      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
-    },
-    {
       "name": "shizuku-silent-mic",
       "url": "https://github.com/onnxscibroccoli/shizuku-silent-mic",
       "visibility": "public",
-      "tier": "supporting",
-      "status": "NOT_ASSESSED_IN_DETAIL",
-      "source": null,
-      "workflow": null,
-      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
-    },
-    {
-      "name": "android-virtual-mic-shizuku",
-      "url": "https://github.com/onnxscibroccoli/android-virtual-mic-shizuku",
-      "visibility": "private",
-      "tier": "supporting",
-      "status": "NOT_ASSESSED_IN_DETAIL",
-      "source": null,
-      "workflow": null,
-      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
-    },
-    {
-      "name": "shizuku-virtual-mic",
-      "url": "https://github.com/onnxscibroccoli/shizuku-virtual-mic",
-      "visibility": "private",
-      "tier": "supporting",
-      "status": "NOT_ASSESSED_IN_DETAIL",
-      "source": null,
-      "workflow": null,
-      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
-    },
-    {
-      "name": "ara-github-write-test",
-      "url": "https://github.com/onnxscibroccoli/ara-github-write-test",
-      "visibility": "private",
-      "tier": "supporting",
-      "status": "NOT_ASSESSED_IN_DETAIL",
-      "source": null,
-      "workflow": null,
-      "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
-    },
-    {
-      "name": "ara-github-write-test-2",
-      "url": "https://github.com/onnxscibroccoli/ara-github-write-test-2",
-      "visibility": "private",
       "tier": "supporting",
       "status": "NOT_ASSESSED_IN_DETAIL",
       "source": null,
@@ -295,5 +215,7 @@
       "workflow": null,
       "evidence_limits": "Do not infer production behavior, original authorship from external code, or safety to publish from this catalog."
     }
-  ]
+  ],
+  "private_repository_count": 8,
+  "known_original_repository_count": 29
 }
