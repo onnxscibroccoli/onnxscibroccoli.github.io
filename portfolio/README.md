@@ -4,7 +4,7 @@ The public site is intended to serve **`/portfolio/`** after this PR is reviewed
 
 ## Purpose
 
-Provide an accessible, **evidence-scoped** entry point to original engineering work. Source links and workflow run IDs bind claims to concrete source or executed CI; descriptive text is not an independent verification. The public-facing cards intentionally do not include private projects. The full 29-repository campaign registry lives in `projects.json`, while the original 17 forks are excluded from claims of authorship.
+Provide an accessible, **evidence-scoped** entry point to original engineering work. Source links and workflow run IDs bind claims to concrete source or executed CI; descriptive text is not an independent verification. The public-facing cards intentionally do not include private projects. The public catalog in `projects.json` lists **21 public original repositories**. The other **8 original repositories are private**; their names, URLs, and code are intentionally excluded. The original 17 forks are also excluded from claims of authorship.
 
 ## Local check
 
@@ -12,7 +12,7 @@ Provide an accessible, **evidence-scoped** entry point to original engineering w
 python3 portfolio/check.py
 ```
 
-This checks HTML landmarks, skip navigation, fragment links, no JavaScript dependencies, the catalog's 29 distinct entries, seven public flagship source and CI links, and verification boundaries. It is **not** a browser/assistive-technology audit, and does not fetch remote links. Manual keyboard/screen-reader and narrow-viewport tests remain outstanding.
+This checks HTML landmarks, skip navigation, fragment links, no JavaScript dependencies, the public catalog's 21 distinct entries and the eight-private-repository metadata count, seven public flagship source and CI links, and verification boundaries. It is **not** a browser/assistive-technology audit, and does not fetch remote links. Manual keyboard/screen-reader and narrow-viewport tests remain outstanding.
 
 ## Reference
 
