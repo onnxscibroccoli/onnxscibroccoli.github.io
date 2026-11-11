@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Source-linked engineering portfolio: infrastructure, automation, distributed systems and accessible applications.">
+<meta name="color-scheme" content="dark light">
+<title>Engineering evidence | onnxscibroccoli</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;color-scheme:dark;color:#eff3f7;background:#0d1420}
+*{box-sizing:border-box}body{margin:0}a{color:#92d8ff;text-underline-offset:.2em}a:focus-visible,button:focus-visible{outline:3px solid #ffc66d;outline-offset:4px}
+.skip{position:absolute;left:-9999px;top:1rem;padding:.6rem;background:#fff;color:#000}.skip:focus{left:1rem;z-index:3}
+.wrap{max-width:72rem;margin:auto;padding:1.3rem}header{border-bottom:1px solid #384453;background:#131f31}
+nav{display:flex;gap:1.2rem;flex-wrap:wrap}h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.14}h2{margin-top:2.5rem}h3{margin-top:.2rem}p{max-width:75ch}
+.lead{font-size:1.2rem;max-width:62ch}.note{background:#172a35;border-left:4px solid #91d7d7;padding:.85rem 1rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:1rem}
+article{border:1px solid #445268;border-radius:.65rem;padding:1.1rem;background:#182338;min-width:0}
+.tags{font-size:.86rem;letter-spacing:.02em;color:#b8e7ce}.details{color:#d2deed}
+code{font-size:.94em;overflow-wrap:anywhere}footer{margin-top:3rem;border-top:1px solid #445268;color:#d2deed}
+@media(prefers-color-scheme:light){:root{color-scheme:light;color:#172134;background:#fafcff}header{background:#eef4f9}article{background:#f0f5fb;border-color:#9aafbf}.note{background:#e4f2f5;border-color:#056e6e}a{color:#07529d}.tags{color:#23583c}.details,footer{color:#354556}.skip{background:#172134;color:#fff}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header><div class="wrap">
+<p><strong>onnxscibroccoli</strong> / Engineering evidence</p>
+<nav aria-label="Primary navigation"><a href="#projects">Flagship projects</a><a href="#method">Verification</a><a href="#architecture">System map</a><a href="#follow">Explore more</a><a href="/">Original site</a></nav>
+</div></header>
+<main id="main" class="wrap">
+<h1>Systems that can be inspected, tested, and explained.</h1>
+<p class="lead">An engineering portfolio focused on infrastructure automation, distributed state, Android accessibility, cloud desktops, and local-first software. Every featured claim points to a source implementation or a bounded test—not a résumé assertion.</p>
+<p class="note"><strong>Evidence boundary:</strong> Many projects are independently developed experimental systems; passing CI demonstrates only the scenario tested. Lab simulations and static infrastructure validation do not prove live customer deployment, certification, independent audit, employment history, or operational tenure. Some project code was developed with AI assistance.</p>
+<section id="projects" aria-labelledby="projects-heading">
+<h2 id="projects-heading">Flagship projects</h2>
+<div class="cards">
+<article><p class="tags">INFRASTRUCTURE · SYNTHETIC LAB</p><h3>Bank IT Operations Lab</h3>
+<p>AWS CDK network and RDS architecture, offline Entra Conditional Access validation, and PostgreSQL recovery with negative controls.</p>
+<p class="details"><strong>Verify:</strong> <a href="https://github.com/onnxscibroccoli/bank-it-operations-lab/blob/main/identity/entra/ca_validator.py">CA validator source</a> · <a href="https://github.com/onnxscibroccoli/bank-it-operations-lab/blob/main/tests/integration/postgres/run_restore_scenario.sh">Recovery harness</a> · <a href="https://github.com/onnxscibroccoli/bank-it-operations-lab/actions/runs/41751288188">Offline CI on main</a>.</p>
+<p><strong>Not claimed:</strong> Live banking tenancy, accepted production release, or completed independent governance.</p>
+<p><a href="https://github.com/onnxscibroccoli/bank-it-operations-lab">Explore repository</a></p></article>
+<article><p class="tags">PLATFORM · CONTROL PLANE</p><h3>Grasshopper</h3>
+<p>Agent execution lifecycle, task reservations, fencing, recovery, and an opt-in SQLite WAL transactional state store with multi-process regression tests.</p>
+<p class="details"><strong>Verify:</strong> <a href="https://github.com/onnxscibroccoli/Grasshopper/blob/main/src/control-plane.mjs">Control plane</a> · <a href="https://github.com/onnxscibroccoli/Grasshopper/blob/main/test/transactional-state-store.test.mjs">Concurrency tests</a> · <a href="https://github.com/onnxscibroccoli/Grasshopper/actions/runs/43010665531">Reference tests (development branch)</a>.</p>
+<p><strong>Not claimed:</strong> The legacy JSON store is not multi-process safe; external side-effect fencing is not production-proven.</p>
+<p><a href="https://github.com/onnxscibroccoli/Grasshopper">Explore repository</a></p></article>
+<article><p class="tags">ANDROID · ACCESSIBILITY</p><h3>Broccoli Core</h3>
+<p>Termux/Shizuku-oriented runtime, execution governance, UI observation, semantic accessibility modules, event buses and provider abstractions.</p>
+<p class="details"><strong>Verify:</strong> <a href="https://github.com/onnxscibroccoli/broccoli-core/blob/main/runtime/kernel.py">Runtime kernel</a> · <a href="https://github.com/onnxscibroccoli/broccoli-core/blob/main/.github/workflows/ci.yml">Python CI configuration</a> · <a href="https://github.com/onnxscibroccoli/broccoli-core/actions/runs/42961641966">Parallax branch APK build</a>.</p>
+<p><strong>Not claimed:</strong> This historical tree is not a unified, release-ready Android automation distribution.</p>
+<p><a href="https://github.com/onnxscibroccoli/broccoli-core">Explore repository</a></p></article>
+<article><p class="tags">CLOUD · REMOTE DESKTOP</p><h3>Helix</h3>
+<p>Authentication, cloud control-plane code, IaC, QEMU/KVM lifecycle contracts, RFB-over-WebSocket remote display, and operational runbooks.</p>
+<p class="details"><strong>Verify:</strong> <a href="https://github.com/onnxscibroccoli/helix/tree/main/infra">Infrastructure source</a> · <a href="https://github.com/onnxscibroccoli/helix/blob/main/.github/workflows/validate.yml">Validation workflow</a> · <a href="https://github.com/onnxscibroccoli/helix/actions/runs/43029338390">Validation run</a>.</p>
+<p><strong>Not claimed:</strong> Main workflow sets <code>HELIX_SKIP_LIVE=1</code>; passing static checks is not proof of a running VM.</p>
+<p><a href="https://github.com/onnxscibroccoli/helix">Explore repository</a></p></article>
+<article><p class="tags">DISTRIBUTED SYSTEMS · EXPERIMENT</p><h3>TCL-orc</h3>
+<p>Deterministic consensus engine, cryptographic ledger prototypes, localnet simulation, circuit constraints, and adversarial tests.</p>
+<p class="details"><strong>Verify:</strong> <a href="https://github.com/onnxscibroccoli/TCL-orc/blob/main/src/tcl/consensus/engine.py">Consensus engine</a> · <a href="https://github.com/onnxscibroccoli/TCL-orc/actions/runs/40054917158">Main CI</a> · <a href="https://github.com/onnxscibroccoli/TCL-orc/actions/runs/40054917162">Documentation gate failure</a>.</p>
+<p><strong>Not claimed:</strong> No external security audit or real-money production network.</p>
+<p><a href="https://github.com/onnxscibroccoli/TCL-orc">Explore repository</a></p></article>
+<article><p class="tags">OFFLINE-FIRST · FIELD SERVICE</p><h3>Accubook</h3>
+<p>Local CSV/JSON workspace, configurable business modules, pricebook and change-order foundations; Android import is under review.</p>
+<p class="details"><strong>Verify:</strong> <a href="https://github.com/onnxscibroccoli/accubook/blob/main/core/accubook.py">Data layer</a> · <a href="https://github.com/onnxscibroccoli/accubook/pull/2">Android import PR</a> · <a href="https://github.com/onnxscibroccoli/accubook/actions/runs/42430101238">Branch APK build</a>.</p>
+<p><strong>Not claimed:</strong> A merged, installed or production-released Android application.</p>
+<p><a href="https://github.com/onnxscibroccoli/accubook">Explore repository</a></p></article>
+<article><p class="tags">CIVIC TECHNOLOGY · SOURCE QUALITY</p><h3>CivicPatch</h3>
+<p>Public-source-first Massachusetts jurisdiction directory, explicit coverage limitations, accessible civic application work, and CI data checks.</p>
+<p class="details"><strong>Verify:</strong> <a href="https://github.com/onnxscibroccoli/civicpatch/blob/main/.github/workflows/validate-data.yml">Coverage validation source</a> · <a href="https://github.com/onnxscibroccoli/civicpatch/actions/runs/43056924311">Scheduled validation</a>.</p>
+<p><strong>Not claimed:</strong> Verified statewide public-service coverage or production readiness.</p>
+<p><a href="https://github.com/onnxscibroccoli/civicpatch">Explore repository</a></p></article>
+</div></section>
+<section id="method"><h2>How to verify the work</h2>
+<p>Open a project, inspect the source linked above, then inspect the exact workflow run and its commit. Run the documented tests in a suitable environment. A branch run does not prove the default branch contains that feature. A green build does not prove live deployment or independent review.</p>
+<p>Evidence vocabulary: <strong>source present</strong>, <strong>static checked</strong>, <strong>simulation</strong>, <strong>CI executed</strong>, <strong>device tested</strong>, <strong>integration tested</strong>, <strong>production verified</strong>, and <strong>not verified</strong>. A status is meaningful only with a test scope and commit reference.</p>
+<p><a href="https://github.com/onnxscibroccoli/broccoli-core/issues/102">Modernization campaign, resumption checklist and unresolved gates</a></p></section>
+<section id="architecture"><h2>System relationships</h2>
+<p><strong>Broccoli Core</strong> is the historical Android automation foundation. The extracted <a href="https://github.com/onnxscibroccoli/broccoli-rish">broccoli-rish</a> repository isolates an Android shell transport contract. <strong>Grasshopper</strong> is a separate agent control plane. <strong>Helix</strong> handles cloud desktop/hypervisor infrastructure. <a href="https://github.com/onnxscibroccoli/omnikali">OmniKali</a> is a discovery/health pointer, not the workstation itself. These are related but should not be mistaken for a single verified production deployment.</p></section>
+<section id="follow"><h2>Explore more</h2>
+<p><a href="https://github.com/onnxscibroccoli?tab=repositories">All repositories</a> (includes forks and experiments) · <a href="https://github.com/onnxscibroccoli/systems-intake">Systems Intake</a> (scheduled licensed upstream discovery) · <a href="https://github.com/onnxscibroccoli/omn-kali-knowledge-graph-master">OmniKali system map</a>. Forks represent upstream authorship unless original modifications are separately demonstrated.</p></section>
+</main><footer><div class="wrap"><p>Static HTML, no external scripts, telemetry, login, animation, or mandatory JavaScript. This portfolio documents software evidence, not employment history. <a href="https://github.com/onnxscibroccoli/onnxscibroccoli.github.io">Site source</a>.</p></div></footer>
+</body></html>
