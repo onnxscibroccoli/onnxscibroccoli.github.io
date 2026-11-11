@@ -49,7 +49,9 @@ def main() -> int:
     manifest = json.loads((ROOT / "projects.json").read_text(encoding="utf-8"))
     assert manifest["schema_version"] == 1
     projects = manifest["projects"]
-    assert len(projects) == 29, "campaign registry must have 29 original repositories"
+    assert len(projects) == 21, "public catalog must have 21 original repositories"
+    assert manifest["private_repository_count"] == 8
+    assert manifest["known_original_repository_count"] == 29
     names = [p["name"] for p in projects]
     assert len(set(names)) == len(names), "duplicate repository"
     featured = [p for p in projects if p["tier"] == "flagship"]
@@ -76,6 +78,7 @@ def main() -> int:
         assert p["workflow"] in raw, f"missing CI anchor for {p['name']}"
         assert "Not claimed:" in raw, "verification limitation labels missing"
     for p in projects:
+        assert p["visibility"] == "public", "private identity leaked into public catalog"
         assert p["url"] == f"https://github.com/onnxscibroccoli/{p['name']}"
         assert p["status"] not in {"PRODUCTION_VERIFIED", "HUMAN_APPROVED"}, "unsubstantiated status"
         if p["visibility"] == "private":
