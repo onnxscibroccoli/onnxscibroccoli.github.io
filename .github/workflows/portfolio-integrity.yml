@@ -1,0 +1,25 @@
+name: Engineering portfolio integrity
+on:
+  pull_request:
+    paths:
+      - 'portfolio/**'
+      - '.github/workflows/portfolio-integrity.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'portfolio/**'
+      - '.github/workflows/portfolio-integrity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence-and-accessibility-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout without persistent credential
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - name: Verify static portal without external services
+        run: python3 portfolio/check.py
