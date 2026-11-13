@@ -14,11 +14,16 @@ python3 portfolio/check.py
 
 This checks HTML landmarks, skip navigation, fragment links, no JavaScript dependencies, the public catalog's 21 distinct entries and the eight-private-repository metadata count, seven public flagship source and CI links, and verification boundaries. It is **not** a browser/assistive-technology audit, and does not fetch remote links. Manual keyboard/screen-reader and narrow-viewport tests remain outstanding.
 
+## Critical evaluation
+
+See [CRITICAL_EVALUATION.md](CRITICAL_EVALUATION.md) for a deeper inquiry that challenges assumptions, identifies information gaps and hidden variables, and recommends concrete next steps. A companion script `critical_analysis.py` can generate a static snapshot report.
+
 ## Reference
 
 - [Campaign ledger](https://github.com/onnxscibroccoli/broccoli-core/issues/102) — ordered cross-repository work and resumption protocol.
 - [Project registry](projects.json) — explicitly scoped capabilities.
 - [Portal](index.html) — semantic static HTML and evidence-linked case studies.
+- [Critical evaluation](CRITICAL_EVALUATION.md) — assumption challenges and gap analysis.
 
 ## Reviewer checkpoints
 
