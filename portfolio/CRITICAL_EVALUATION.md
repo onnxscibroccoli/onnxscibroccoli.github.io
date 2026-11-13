@@ -145,3 +145,15 @@ These are **tests to implement or demand**, not claims that defects exist. The e
 Implementation companion: [public evidence probe](evidence_probe.py), [offline contract tests](test_evidence_probe.py), and the daily Actions workflow at [portfolio-critical-evidence.yml](../.github/workflows/portfolio-critical-evidence.yml). The workflow writes a reviewable artifact; it does not automatically promote the static portfolio or publish private information. See [README](README.md) for manual and CI execution.
 
 **Caveat:** Actual production hardening, live device testing, independent review and knowledge-graph regeneration are still unverified here. Treat the results as a prioritized engineering program, not a completed acceptance campaign.
+
+
+### Second-order CI challenge: multiple workflows at the same HEAD
+
+The first live collection (2026-11-13 01:25 UTC, run 43344736845) demonstrated that even a valid, successful **cited** run does not guarantee that **other** workflows at that commit passed. The bounded recent-run snapshot found:
+
+- bank-it-operations-lab: current-HEAD integration-gate **failed**, while offline-validation, acceptance, and documentation workflows succeeded.
+- helix: current-HEAD agent-container-validation **failed**, while the cited validate workflow succeeded.
+- TCL-orc: current-HEAD Docs-as-Code Quality Gates **failed**, while CI and physical-notes succeeded.
+- broccoli-core: a current-HEAD CI run was **queued** when the sample was captured.
+
+These are observed workflow outcomes, **not** conclusions about the severity of the code underneath; some runs can be optional or have subsequent reruns. They establish why a one-run green badge is not a project-wide verdict. The observer now retains the most recent run per workflow identity in its bounded window, explicitly surfaces failures/cancellations/pending results, and makes the opt-in strict promotion check fail closed on such flagship exceptions. The collector remains non-promotional and does not auto-edit published readiness labels.
