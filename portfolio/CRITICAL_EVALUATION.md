@@ -48,7 +48,7 @@ This document shifts from the portfolio's already-careful evidence-scoped presen
 - **Historical volume in broccoli-core:** ~5,900 tree entries, large mirrors, and explicit warnings about credential-like paths. Extraction and provenance rules exist, but the size itself is a hidden operational risk for agents and reviewers.
 - **Knowledge-graph staleness:** Dated snapshot vs. subsequent architecture work creates a latent inconsistency hazard for any agent following the graph rule.
 - **Portfolio publication state:** The portfolio directory is presented as a draft pending review and Pages configuration. The public site root remains the Half a Mile essay.
-- **Single-maintainer consistency:** Development velocity is high, but the personal context of the maintainer (documented elsewhere) implies variable availability; no automated health or resumption protocol is visible in the portfolio itself beyond the linked campaign issue.
+- **Continuity concentration:** Check whether repository governance, review, and resumption procedures survive an unavailable maintainer; infer no personal circumstances.
 
 ## Recommended Solutions (Implementable)
 
@@ -88,3 +88,60 @@ This document shifts from the portfolio's already-careful evidence-scoped presen
 - Triage a representative sample of open issues in broccoli-core and Grasshopper to quantify the debt vs. feature mix.
 
 This evaluation is an input to engineering judgment, not a substitute for it. Preserve the existing fail-closed and provenance discipline; the goal is deeper robustness, not broader claims.
+
+
+## Evidence re-check: 2026-11-12 Eastern / 2026-11-13 UTC
+
+The following is a **bounded verification**, not a full independent code audit. On 2026-11-12 ET the public GitHub metadata, current default-branch commit SHA, and the seven workflow run IDs cited in the portfolio were individually retrieved. Of the seven cited runs, **three** point to the current default branch head and **four** do not. This count says nothing about required-job completeness, security, live devices, release readiness, or third-party review.
+
+| Flagship | Default HEAD observed | Cited workflow binding | Critical qualification |
+| --- | --- | --- | --- |
+| bank-it-operations-lab | e115cf089d9d | Same main SHA, run on Nov 4 | About eight days old; offline lab coverage is not governance acceptance |
+| Grasshopper | 3fc518ae762d | Different SHA and docs/update-readme branch | Historical success cannot close multiprocess lost-update or external side-effect fencing |
+| broccoli-core | b20d5fe04f18 | Different SHA and Parallax feature branch | APK build is not an installed/live Android acceptance test |
+| helix | 8f687036344e | Same main SHA | Run is not KVM runtime evidence; live path was explicitly skipped |
+| accubook | 1d45d8829457 | Different SHA and import feature branch | Imported Android build is not proof of current main or field usability |
+| TCL-orc | b8becda20631 | Historical main SHA from Oct 24 | Neither consensus under partition nor vOS sandbox behavior is attested |
+| civicpatch | cd94213ec270 | Same main SHA | Data validation does not establish jurisdiction completeness |
+
+GitHub's repository open_issues_count metadata includes pull requests; values such as 89 for broccoli-core and 80 for Grasshopper are therefore **not** validated defect counts. Stars/forks cannot establish either presence or absence of independent audit. A missing GitHub-recognized license field is likewise not conclusive proof of missing licensing.
+
+### Falsifiable inquiry matrix: every public portfolio entry
+
+These are **tests to implement or demand**, not claims that defects exist. The evaluation targets all 21 catalogued public original repositories; private repositories and forked code are excluded from published analysis.
+
+| Repository | Assumption to challenge / hidden variable | Required disconfirming evidence |
+| --- | --- | --- |
+| bank-it-operations-lab | A synthetic restore result generalizes to recovery under operational failure | Fresh SHA-bound restore with injected corruption, rollback evidence, and separate human governance acceptance |
+| Grasshopper | SQLite or generation checks imply safe external retries | Multi-process fault tests plus idempotent external side-effect fencing, crash/restart trace and reviewer sign-off |
+| broccoli-core | Green CI predicts safe no-root Android operation | Permission-denied, disconnected-Shizuku, API-level, latency, and real device acceptance matrix |
+| helix | Static validation predicts a bootable KVM guest | Live KVM boot/shutdown/recovery log and explicit environment constraints |
+| accubook | A compilable APK proves offline field workflows | Device install, contacts consent, transaction restore, invoice/PDF, attachment migration, accessibility and conflict tests |
+| TCL-orc | Ledger simulation establishes trustworthy consensus | Partition, equivocation, replay, Sybil, resource exhaustion, deterministic WASM and non-custodial boundary tests |
+| civicpatch | Valid input data implies accurate jurisdiction coverage | Source provenance, jurisdiction/date completeness, conflicts, expirations and adversarial records |
+| broccoli-rish | Shell access implies stable Shizuku permission flow | Explicit consent and denied/revoked/disconnected rish tests without root fallback |
+| systems-intake | Ingestion accepts realistic schema and ownership changes | Duplicate, partial, stale and malformed input replay with deterministic resumption |
+| omnikali | Orchestration metadata reflects current code | Commit-pinned provenance, minimal privilege and bounded self-healing experiments |
+| omn-kali-knowledge-graph-master | The knowledge graph accurately represents recent architectural state | Generated-at freshness plus per-source commit manifest and diff-based regeneration |
+| kiln | Local build output is reproducible on a clean host | Cold clean-room build, dependency pinning, artifact hashes and license inventory |
+| Androidd-cloud-computing-compainion | Host/device integration works beyond a developer setup | Cold-start, API/CPU compatibility, microphone/display permissions, disconnect and recovery validation |
+| dectalk-live | Audio demos establish accessibility and reliability | Real screen reader, audio focus/latency, interruption and user-consent tests |
+| onnxscibroccoli.github.io | A static portal is published and keyboard accessible | Real Pages URL, mobile keyboard/screen-reader audit and link/claim freshness proof |
+| omnikali-link | Linked evidence remains available and authoritative | Broken/stale-link checker and per-link source SHA/provenance |
+| half-a-mile | A prose project may be described as software assurance | Separate authorship/provenance checks and editorial accessibility; no engineering readiness inference |
+| newsroom-desk | News aggregation implies dependable source attribution | Citation-to-source trace, corrected reports, dates, duplicates and false-content handling |
+| lattice-audit | Backtesting provides investable predictive validity | Strict as-of-time feature availability, no look-ahead, costs/slippage, out-of-sample and live-paper divergence audit |
+| shizuku-silent-mic | Permission tooling can safely modify mic state on all supported devices | Explicit user consent, Android policy compliance, indicator and denied-permission behavior |
+| trash | Repository presence means an actively supported product | Determine purpose, provenance, safe publication and archive/maintenance classification |
+
+### Engineering disposition and guardrails
+
+1. **P0 — Evidence integrity:** Merge a read-only observer before changing any release label. Verify public catalog coverage, default HEAD versus cited run SHA/branch, bounded issue samples, current-HEAD run observations, and source-path existence. Missing API data is unknown, never a pass.
+2. **P0 — Security / state correctness:** For Grasshopper, TCL-orc, rish and audio/microphone projects, demand explicit failure tests, permission-aware degradation and side-effect fencing before exposure to real users. A snapshot has no authority to waive these gates.
+3. **P1 — Hardware / user acceptance:** Prioritize live physical Android acceptance for broccoli-core and accubook, true KVM execution for helix, and independent restore verification for bank-it-operations-lab.
+4. **P1 — Knowledge provenance:** Build a generated-at and source-commit manifest for OmniKali, then update portfolio entries only from evidence at the exact claimed revision; historical links remain available and are labelled historical.
+5. **P2 — Backlog and maintenance:** Separate PRs from issues, then sample issue age, severity and labels without misclassifying unreviewed items as defects. Encourage external review without treating popularity as a reliability metric.
+
+Implementation companion: [public evidence probe](evidence_probe.py), [offline contract tests](test_evidence_probe.py), and the daily Actions workflow at [portfolio-critical-evidence.yml](../.github/workflows/portfolio-critical-evidence.yml). The workflow writes a reviewable artifact; it does not automatically promote the static portfolio or publish private information. See [README](README.md) for manual and CI execution.
+
+**Caveat:** Actual production hardening, live device testing, independent review and knowledge-graph regeneration are still unverified here. Treat the results as a prioritized engineering program, not a completed acceptance campaign.
