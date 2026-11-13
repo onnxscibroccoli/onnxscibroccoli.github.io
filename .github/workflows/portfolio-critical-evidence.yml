@@ -1,0 +1,56 @@
+name: Portfolio critical evidence (public, read-only)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 * * *'
+  pull_request:
+    paths:
+      - 'portfolio/evidence_probe.py'
+      - 'portfolio/test_evidence_probe.py'
+      - 'portfolio/projects.json'
+      - '.github/workflows/portfolio-critical-evidence.yml'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: portfolio-critical-evidence-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Offline contract tests (no network)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate portal and evidence contracts
+        run: |
+          python3 portfolio/check.py
+          python3 portfolio/critical_analysis.py
+          python3 -m unittest discover -s portfolio -p 'test_evidence_probe.py' -v
+          python3 portfolio/evidence_probe.py
+
+  observe:
+    name: Collect public evidence (not a readiness attestation)
+    if: github.event_name != 'pull_request'
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe current public repository metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 portfolio/evidence_probe.py --online --max-age-days 7 \
+            --fail-on-incomplete-collection --output-dir "$RUNNER_TEMP/portfolio-evidence"
+          echo 'Read-only evidence collection completed; historical links do not attest HEAD.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve evidence and diagnostics even when collection fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-portfolio-evidence
+          path: ${{ runner.temp }}/portfolio-evidence/
+          if-no-files-found: warn
+          retention-days: 30
