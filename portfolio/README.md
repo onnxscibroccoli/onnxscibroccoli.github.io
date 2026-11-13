@@ -34,3 +34,30 @@ See [CRITICAL_EVALUATION.md](CRITICAL_EVALUATION.md) for a deeper inquiry that c
 - [ ] Keep private project contents and personal employment history out of the published site.
 
 **Operational limit:** This PR creates reviewable source, not a completed site publication or verified release.
+
+## Living critical-inquiry evidence
+
+CRITICAL_EVALUATION.md now records **falsifiable experiments for all 21 public portfolio repositories**, not inferred readiness or personal details. The new **evidence_probe.py** is a dependency-free, read-only public GitHub observer. It checks catalog drift against public originals (forks excluded), repository default HEAD, historical workflow SHA/branch/date bindings, current-HEAD workflow observations, source anchor existence and **bounded** issue triage samples. It does not enumerate authenticated private repositories.
+
+### Local, reproducible validation
+
+Run from the repository root in Termux, Linux, or a GitHub Actions runner:
+
+    python3 portfolio/check.py
+    python3 portfolio/critical_analysis.py
+    python3 -m unittest discover -s portfolio -p 'test_evidence_probe.py' -v
+    python3 portfolio/evidence_probe.py
+
+Optional live audit (requires a read-only-access GitHub token; never commit or print the token):
+
+    GH_TOKEN="$(gh auth token)" python3 portfolio/evidence_probe.py --online \
+      --max-age-days 7 --fail-on-incomplete-collection
+
+A deliberately stronger promotion gate, which **fails** if a cited flagship workflow does not attest to a fresh default HEAD, is:
+
+    GH_TOKEN="$(gh auth token)" python3 portfolio/evidence_probe.py --online \
+      --strict --max-age-days 7
+
+The live observer writes `portfolio/evidence-output/evidence.json` and `EVIDENCE_REPORT.md`; generated outputs are for inspection, not automatic publication. The separate workflow `.github/workflows/portfolio-critical-evidence.yml` runs offline tests on pull requests and collects a **daily public evidence artifact** after merge to the default branch. A successful collection run means the observer gathered data; it never certifies a release. Historical/stale links remain explicitly historical and do not turn green just because another workflow ran successfully.
+
+Important measurement limits: GitHub's `open_issues_count` includes pull requests; the oldest open issue and triage labels are sampled rather than exhaustively classified; stars/forks are not independent technical review. HTTP failures, mismatched source anchors, new uncatalogued public originals, and missing default-head SHA are reported as unknown or drift. The observer is read-only, and no private names or credentials enter its artifact.
