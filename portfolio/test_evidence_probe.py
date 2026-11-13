@@ -37,7 +37,7 @@ class Fake:
                     "head_sha": self.run_head, "head_branch": self.run_branch,
                     "created_at": (NOW - timedelta(days=self.days)).isoformat()}
         if "/actions/runs?" in path:
-            return {"workflow_runs": [{"head_sha": self.head, "name": "unit", "conclusion": "success"},
+            return {"workflow_runs": [{"head_sha": self.head, "name": "unit", "status": "completed", "conclusion": "success"},
                                       {"head_sha": "older", "name": "unit", "conclusion": "failure"}]}
         if "/issues?" in path:
             return [{"created_at": (NOW - timedelta(days=20)).isoformat(), "pull_request": {}},
@@ -70,7 +70,7 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(row["issue_sample"]["issues_in_sample"], 2)
         self.assertEqual(row["issue_sample"]["triage_labeled_in_sample"], 1)
         self.assertEqual(row["issue_sample"]["oldest_issue_in_sample_days"], 12)
-        self.assertEqual(len(row["latest_default_head_runs"]), 1)
+        self.assertEqual(len(row["default_head_workflows"]["most_recent_per_workflow"]), 1)
         self.assertEqual(row["open_issue_and_pr_count"], 5)
         self.assertNotIn("repository", row)
 
@@ -104,6 +104,19 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(snap["coverage"]["state"], "complete")
         self.assertEqual(probe.gates(snap), [])
         self.assertEqual(probe.collection_failures(snap), [])
+
+    def test_head_workflow_exception_not_masked_by_older_success(self):
+        payload = {"workflow_runs": [
+            {"head_sha": "abc", "workflow_id": 14, "name": "integration-gate", "status": "completed", "conclusion": "failure"},
+            {"head_sha": "abc", "workflow_id": 14, "name": "integration-gate", "status": "completed", "conclusion": "success"},
+            {"head_sha": "older", "workflow_id": 15, "name": "ci", "status": "completed", "conclusion": "failure"},
+            {"head_sha": "abc", "workflow_id": 16, "name": "security", "status": "queued", "conclusion": None},
+        ]}
+        observed = probe.head_workflow_observation(payload, "abc")
+        self.assertEqual(len(observed["most_recent_per_workflow"]), 2)
+        self.assertEqual(len(observed["head_run_exceptions"]), 2)
+        self.assertEqual(observed["head_run_exceptions"][0]["conclusion"], "failure")
+        self.assertEqual(observed["head_run_exceptions"][1]["status"], "queued")
 
     def test_reject_bad_anchor_and_date(self):
         self.assertIsNone(probe.utc("2026-X-X"))

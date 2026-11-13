@@ -155,6 +155,35 @@ def source_anchor(api, p: dict) -> str:
     return "exists_on_main"  # existence, not content or behavior attestation
 
 
+def head_workflow_observation(payload: dict, sha: str) -> dict:
+    """Bounded latest-per-workflow evidence at HEAD, never an aggregate CI verdict.
+
+    GitHub returns recent runs newest-first. Older duplicates of the same workflow
+    must not hide the latest failure, cancellation or pending run.
+    """
+    if not isinstance(payload, dict) or not isinstance(payload.get("workflow_runs"), list):
+        raise ValueError("workflow list missing or malformed")
+    latest: dict[str, dict] = {}
+    for run in payload["workflow_runs"]:
+        if run.get("head_sha") != sha:
+            continue
+        identity = str(run.get("workflow_id") or run.get("name") or run.get("id"))
+        if identity in latest:
+            continue
+        latest[identity] = {
+            "workflow": run.get("name"), "id": run.get("id"),
+            "url": run.get("html_url"), "event": run.get("event"),
+            "status": run.get("status"), "conclusion": run.get("conclusion"),
+            "created_at": run.get("created_at"),
+        }
+    runs = list(latest.values())
+    exceptions = [run for run in runs if run["status"] != "completed" or
+                  run["conclusion"] not in ("success", "neutral", "skipped")]
+    return {"observation_limit": 30, "most_recent_per_workflow": runs,
+            "head_run_exceptions": exceptions,
+            "completeness": "bounded: not a required-workflow inventory"}
+
+
 def examine(api, p: dict, now: datetime, max_age: int) -> dict:
     name = p["name"]
     path = f"/repos/{OWNER}/{quote(name)}"
@@ -200,11 +229,8 @@ def examine(api, p: dict, now: datetime, max_age: int) -> dict:
     attempt("issue_sample", lambda: issue_sample(api.get(
         f"{path}/issues?state=open&sort=created&direction=asc&per_page=30"), now))
     if sha:
-        attempt("latest_default_head_runs", lambda: [{
-            "workflow": r.get("name"), "event": r.get("event"),
-            "status": r.get("status"), "conclusion": r.get("conclusion")}
-            for r in api.get(f"{path}/actions/runs?branch={quote(branch, safe='')}&per_page=30").get("workflow_runs", [])
-            if r.get("head_sha") == sha][:10])
+        attempt("default_head_workflows", lambda: head_workflow_observation(
+            api.get(f"{path}/actions/runs?branch={quote(branch, safe='')}&per_page=30"), sha))
         attempt("linked_workflow", lambda: linked_workflow(api, p, branch, sha, now, max_age))
     else:
         row["linked_workflow"] = {"state": "unverified"}
@@ -239,7 +265,7 @@ def collection_failures(snap: dict) -> list[str]:
     if snap["coverage"]["state"] != "complete" or snap["errors"]:
         failures.append("public inventory drifted or could not be enumerated")
     for p in snap["projects"]:
-        required = ("default_head_sha", "issue_sample", "latest_default_head_runs", "linked_workflow", "source_anchor")
+        required = ("default_head_sha", "issue_sample", "default_head_workflows", "linked_workflow", "source_anchor")
         if not p["observed"] or p["errors"] or any(p.get(k) is None for k in required):
             failures.append(f"{p['name']}: missing or incomplete live data")
     return failures
@@ -258,6 +284,8 @@ def gates(snap: dict) -> list[str]:
                 failures.append(f"{p['name']}: cited workflow does not attest to fresh default HEAD")
             if p.get("source_anchor") != "exists_on_main":
                 failures.append(f"{p['name']}: default-branch source anchor not verified")
+            for r in (p.get("default_head_workflows") or {}).get("head_run_exceptions", []):
+                failures.append(f"{p['name']}: HEAD workflow {r.get('workflow') or r.get('id')} has status={r.get('status')} conclusion={r.get('conclusion')}")
     return failures
 
 
@@ -268,8 +296,8 @@ def markdown(snap: dict) -> str:
              f"Catalog-to-GitHub coverage: **{snap['coverage']['state']}**.", "",
              "Evidence is *not* a production certification. A successful Actions run covers only the named workflow at its recorded SHA.",
              "An issues endpoint count includes pull requests; sampled labels and ages are not a complete debt classification.", "",
-             "| Repository | Tier | Default head | Linked workflow | Open issues + PRs | Oldest sampled issue (days) | Inquiry |",
-             "| --- | --- | --- | --- | ---: | ---: | --- |"]
+             "| Repository | Tier | Default head | Linked workflow | HEAD workflow exceptions | Open issues + PRs | Oldest sampled issue (days) | Inquiry |",
+             "| --- | --- | --- | --- | --- | ---: | ---: | --- |"]
     for p in snap["projects"]:
         s = (p.get("linked_workflow") or {}).get("state", "unknown")
         issue = (p.get("issue_sample") or {}).get("oldest_issue_in_sample_days")
@@ -277,7 +305,14 @@ def markdown(snap: dict) -> str:
         count = p.get("open_issue_and_pr_count")
         count = "unknown" if count is None else str(count)
         inquiry = "API incomplete" if p["errors"] else ("Test freshness/attestation" if p["tier"] == "flagship" else "Assess scope and proof")
-        lines.append(f"| {p['name']} | {p['tier']} | {(p.get('default_head_sha') or 'unknown')[:12]} | {s} | {count} | {days} | {inquiry} |")
+        observed = p.get("default_head_workflows") or {}
+        exceptions = observed.get("head_run_exceptions") or []
+        exception_names = ", ".join(str(r.get("workflow") or "unknown").replace("|", "/") + ":" + str(r.get("conclusion") or r.get("status")) for r in exceptions[:2])
+        if len(exceptions) > 2:
+            exception_names += f" (+{len(exceptions) - 2} more)"
+        if not observed:
+            exception_names = "unknown"
+        lines.append(f"| {p['name']} | {p['tier']} | {(p.get('default_head_sha') or 'unknown')[:12]} | {s} | {exception_names or 'none observed'} | {count} | {days} | {inquiry} |")
     lines += ["", "## Inventory exceptions"]
     coverage = snap["coverage"]
     for key in ("missing_from_catalog", "missing_on_github"):
@@ -287,6 +322,7 @@ def markdown(snap: dict) -> str:
     lines.extend(f"- {e}" for e in errors) if errors else lines.append("- None under configured freshness policy")
     lines += ["", "## Interpretation", "", "- HEAD-linked success is a narrow signal, not aggregate CI or acceptance proof.",
               "- Repository popularity is not a measure of code safety or external peer review.",
+              "- HEAD workflow exceptions come from up to 30 recent runs, de-duplicated by workflow. This does not prove all required workflows ran.",
               "- Missing API responses and stale links remain unverified; never convert them to green.",
               "- Evaluate the hypotheses in CRITICAL_EVALUATION.md before changing readiness labels.", ""]
     return "\n".join(lines)
